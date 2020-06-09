@@ -1,0 +1,68 @@
+# SCHEMA DEFINITION
+schema {
+    query: Query
+    mutation: Mutation
+#    subscription: Subscription
+}
+
+# MUTATION
+type Mutation {
+    signup(input: SignupInput!): AuthPayload!
+    login(input: LoginInput!): AuthPayload!
+}
+
+# QUERY
+type Query {
+    users: [User!]!
+#    user(id: ID!): User!
+#    tasks: [Task!]!
+#    task(id: ID!): Task!
+}
+
+# SUBSCRIPTION
+#type Subscription {
+#
+#}
+
+# Signup input
+input SignupInput {
+    email: String!,
+    password: String!,
+    name: String
+}
+
+# Login input
+input LoginInput {
+    email: String!,
+    password: String!
+}
+
+# Type AuthPayload
+type AuthPayload {
+    message: String
+    success: Boolean
+    token: String!
+    user: User!
+}
+
+# Type USER
+type User {
+    id: ID!
+    email: String!
+    name: String
+    password: String!
+    createdAt: String
+    deletedAt: String
+    tasks: [User!]!
+}
+
+# Type TASK
+type Task {
+    id: ID!
+    name: String!
+    content: String
+    createdAt: String
+    archiveAt: String
+    deletedAt: String
+    user: User!
+}
