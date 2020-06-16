@@ -9,7 +9,7 @@
     "playground": "graphql playground"
   },
   "devDependencies": {
-    "@prisma/cli": "^2.0.0",
+    "@prisma/cli": "^2.0.1",
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.6",
     "@types/jsonwebtoken": "^8.5.0",

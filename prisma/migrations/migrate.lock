@@ -6,3 +6,4 @@
 20200612152258-migrate
 20200613152059-add-label-model-and-connect-to-task
 20200614144505-change-task-autoincrement-id-to-uuid
+20200616185013-add-test

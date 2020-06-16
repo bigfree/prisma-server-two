@@ -39,3 +39,9 @@ model Label {
   createdAt DateTime @default(now())
   tasks     Task[]   @relation(references: [id])
 }
+
+model Test {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+}

@@ -8,13 +8,15 @@ import UserResolver from "./schemas/user/UserResolver";
 import AuthResolver from "./schemas/auth/AuthResolver";
 import TaskResolver from "./schemas/task/TaskResolver";
 import LabelResolver from "./schemas/label/LabelResolver";
+import TestResolver from "./schemas/test/test.resolver";
+
 import { authChecker, customAuthChecker } from "./AuthChecker";
 
 async function bootstrap() {
     const pubsub = new PubSub();
 
     const schema = await buildSchema({
-        resolvers: [UserResolver, AuthResolver, TaskResolver, LabelResolver],
+        resolvers: [UserResolver, AuthResolver, TaskResolver, LabelResolver, TestResolver],
         emitSchemaFile: true,
         dateScalarMode: "isoDate",
         authChecker: customAuthChecker
@@ -30,7 +32,7 @@ async function bootstrap() {
         tracing: true,
         // cacheControl: true,
         subscriptions: {
-            onConnect: async(connectionParams, webSocket, context) => {
+            onConnect: async (connectionParams, webSocket, context) => {
                 console.log(`Subscription client connect.`)
             },
             onDisconnect: async (webSocket, context) => {
