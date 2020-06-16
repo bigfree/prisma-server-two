@@ -1,3 +1,8 @@
 # Prisma Migrate lockfile v1
 
 20200608201026-migrate
+20200611214342-migrate
+20200612152040-migrate-user-and-task-relation
+20200612152258-migrate
+20200613152059-add-label-model-and-connect-to-task
+20200614144505-change-task-autoincrement-id-to-uuid

@@ -1,13 +1,21 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "moduleResolution": "node",
+    "target": "esnext",
     "module": "commonjs",
-    "sourceMap": true,
-    "rootDir": "src",
-    "outDir": "dist",
     "lib": [
-      "esnext", "dom"
-    ]
-  }
+      "dom",
+      "esnext",
+      "esnext.asynciterable"
+    ],
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+  },
+  "include": [
+    "./src/**/*"
+  ]
 }

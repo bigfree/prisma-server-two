@@ -1,3 +1,5 @@
+scalar DateTime
+
 # SCHEMA DEFINITION
 schema {
     query: Query
@@ -51,8 +53,8 @@ type User {
     email: String!
     name: String
     password: String!
-    createdAt: String
-    deletedAt: String
+    createdAt: DateTime
+    deletedAt: DateTime
     tasks: [User!]!
 }
 
@@ -61,8 +63,8 @@ type Task {
     id: ID!
     name: String!
     content: String
-    createdAt: String
-    archiveAt: String
-    deletedAt: String
+    createdAt: DateTime
+    archiveAt: DateTime
+    deletedAt: DateTime
     user: User!
 }

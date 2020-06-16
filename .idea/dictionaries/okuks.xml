@@ -2,8 +2,14 @@
   <dictionary name="okuks">
     <words>
       <w>bcrypt</w>
+      <w>prihlasenie</w>
       <w>prisma</w>
+      <w>pubsub</w>
+      <w>registracia</w>
       <w>signup</w>
+      <w>uzivatela</w>
+      <w>uzivatelov</w>
+      <w>vypis</w>
     </words>
   </dictionary>
 </component>
