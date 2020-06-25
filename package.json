@@ -4,18 +4,19 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node src/index.ts",
-    "dev": "npm-run-all --parallel start playground",
-    "playground": "graphql playground"
+    "start": "ts-node --transpile-only src/index.ts",
+    "generate": "prisma generate",
+    "seed": "ts-node --transpile-only ./prisma/seed.ts"
   },
   "devDependencies": {
     "@prisma/cli": "^2.0.1",
     "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.6",
     "@types/jsonwebtoken": "^8.5.0",
-    "@types/node": "^14.0.13",
+    "@types/node": "^14.0.14",
     "@types/range-parser": "^1.2.3",
     "ts-node": "^8.10.2",
+    "typegraphql-prisma": "0.3.1",
     "typescript": "^3.9.5"
   },
   "dependencies": {
@@ -25,6 +26,7 @@
     "bcryptjs": "^2.4.3",
     "class-validator": "^0.12.2",
     "graphql": "^15.1.0",
+    "graphql-type-json": "^0.3.2",
     "graphql-yoga": "^1.18.3",
     "jsonwebtoken": "^8.5.1",
     "reflect-metadata": "^0.1.13",

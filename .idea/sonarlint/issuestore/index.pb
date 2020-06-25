@@ -33,12 +33,6 @@ L
 .idea/dictionaries/okuks.xml,3\8\383ac73c2a3a085753ae155127d1582128b7b399
 \
 ,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
-b
-2prisma/migrations/20200608201026-migrate/README.md,1\c\1c786d32ff2d6535125b7153eb1a240b957ed605
-f
-6prisma/migrations/20200608201026-migrate/schema.prisma,1\f\1f56a0052c93f3eadd356699e3d311be873f43be
-c
-3prisma/migrations/20200608201026-migrate/steps.json,1\f\1fec3a50ece3787c274308f92d92298eaf37df53
 N
 prisma/migrations/migrate.lock,3\0\30c050a549c8383de2dcf90661a1bf7b279ccae8
 B
@@ -67,12 +61,8 @@ Q
 !src/schemas/auth/AuthInterface.ts,1\b\1bd9bcea1c4dc6d3da19f1f4f0ebd02a6edaab8b
 J
 src/schemas/label/Label.ts,d\9\d91679e5387b01a9ceffba838f5cce409c59ae06
-P
- src/schemas/label/LabelFilter.ts,2\d\2d4b9383759db1c607ad53da8ebf2df0d32df90d
 M
 src/schemas/user/UserInput.ts,9\1\91f353c5b53f9fba88defe4cad5ecce712c97c9c
-N
-src/schemas/task/TaskFilter.ts,9\6\96b75e64b6c257b6d6f43eddd7ff217607f26369
 H
 src/schemas/user/User.ts,a\8\a8433acc1de3391d78fc4f13c421db1678468b85
 O
@@ -81,8 +71,6 @@ B
 src/AuthChecker.ts,b\0\b0ed8ee88748199d0c967470b6f9f5a19aac9473
 H
 src/schemas/task/Task.ts,5\8\58d7b113812fb4d400d858b5d92b6ccc1f7b95de
-M
-src/schemas/task/TaskInput.ts,7\e\7ed2a1b20e083e0a572a7ac006a1c484599342b3
 P
  src/schemas/task/TaskResolver.ts,2\a\2a15be043c9b75ca1553abcb6fdcab57e849ac6e
 P
@@ -91,3 +79,51 @@ P
  src/schemas/auth/AuthResolver.ts,9\6\96a51fafe6bbfcd78226e9401c83bf18e10ed721
 R
 "src/schemas/label/LabelResolver.ts,6\8\6826f2f538b63c8a6c16ad3f5b5b22b0e74e92f0
+s
+Cprisma/Studio/-Dokumenty-MyProjects-prisma-server-two/schema.prisma,7\1\71ad5a5ec6a8a2b66da4bc9017ac4d4e86a920a0
+d
+4src/prisma/client/runtime/browser-terminal-link.d.ts,5\c\5c5e517907809f664078191f142c01dd50b3b009
+T
+$.idea/codeStyles/codeStyleConfig.xml,d\d\dd7b3350c29c49497756c7f32c69a3bed18b1cba
+Q
+!src/schemas/task/TaskInterface.ts,4\3\43e504ba6648c7310eddce734951d4d892e1952b
+G
+src/enums/OrderByArg.ts,f\2\f26e308735f51231b1392ac7e42c5aaf3a4bd752
+M
+src/filters/DateTimeFilter.ts,8\1\8175a5c7c67da5139d8b40a163043afb54fb550f
+H
+src/filters/IntFilter.ts,5\c\5c79d807d940eb15740df5d30b1077865f3f18bb
+U
+%src/filters/NullableDateTimeFilter.ts,8\f\8f717787fc2b7ab4d9d351163367ebcab7298d4a
+S
+#src/filters/NullableStringFilter.ts,7\b\7b678cf886a4e3c98068f70d00ae3ebf7743b783
+Q
+!src/schemas/test/test.resolver.ts,2\3\23c21008e021ea238aebcbdd7b029cadd78d44b9
+H
+src/schemas/test/test.ts,a\3\a3e614b1630cb1ba9730d286dffcb49b2e678f58
+P
+ src/schemas/test/test.filters.ts,3\5\35345134c8d632a6f0c68b4412dc3c0ec0fb2976
+>
+yarn-error.log,f\3\f3b7336f891b6569b2fd4a67fd391439c7eb76e3
+L
+src/schemas/user/UserArgs.ts,d\4\d48cd0881c95bede83919f89d0672c727990409a
+p
+@prisma/Studio/-Dokumenty-MyProjects-prisma-server-two/index.d.ts,c\b\cb254a83da8b0626ab8074700efa0c76f64ec53f
+N
+src/schemas/task/TaskInputs.ts,e\5\e5f62b58b58d1d44e61ce0297f967da26d99aae1
+J
+src/filters/LabelFilter.ts,f\6\f66333ddb83d87bd8d282352213bcd171367f3e6
+O
+src/schemas/task/TaskFilters.ts,c\5\c5626e38605c05c35d0f9d212cc2325231ada9e9
+N
+src/schemas/label/LabelArgs.ts,3\7\3740f90cbe2a834e73d474f3afee54a79d2c91b7
+K
+src/filters/StringFilter.ts,f\c\fce56e852d72ea763eda9fd4b5a0448c2718b359
+I
+src/filters/UUIDFilter.ts,c\a\ca844b519d9e1744cc18196c2d874fb4dd5deb9c
+P
+ src/schemas/label/LabelInputs.ts,2\e\2e00788168707d1938c0e0d75ed98a3e3b992a27
+O
+src/scalars/UUIDFilterScalar.ts,9\8\9832785500769f78e486cc84bbc0853041e2ee05
+Q
+!src/scalars/StringFilterScalar.ts,9\4\94c2878d435b0c6a7c36089226dd070760a7d9d8

@@ -1,25 +1,38 @@
 import "reflect-metadata";
-// import { GraphQLServer } from "graphql-yoga";
-import { ApolloServer, PubSub } from "apollo-server";
 import { buildSchema } from "type-graphql";
-import { PrismaClient } from "./prisma/client";
+import { ApolloServer } from "apollo-server";
+import { PrismaClient } from "@prisma/client";
 
-import UserResolver from "./schemas/user/UserResolver";
-import AuthResolver from "./schemas/auth/AuthResolver";
-import TaskResolver from "./schemas/task/TaskResolver";
-import LabelResolver from "./schemas/label/LabelResolver";
-import TestResolver from "./schemas/test/test.resolver";
+import * as path from "path";
 
-import { authChecker, customAuthChecker } from "./AuthChecker";
+import { CustomAuthResolver } from "./schemas/auth/AuthResolver"
+import {
+    LabelCrudResolver,
+    LabelRelationsResolver,
+    TaskCrudResolver,
+    TaskRelationsResolver,
+    UserCrudResolver,
+    UserRelationsResolver
+} from "../prisma/generated/type-graphql";
 
-async function bootstrap() {
-    const pubsub = new PubSub();
+export interface Context {
+    prisma: PrismaClient;
+}
 
+async function main() {
     const schema = await buildSchema({
-        resolvers: [UserResolver, AuthResolver, TaskResolver, LabelResolver, TestResolver],
-        emitSchemaFile: true,
+        resolvers: [
+            CustomAuthResolver,
+            UserRelationsResolver,
+            TaskRelationsResolver,
+            LabelRelationsResolver,
+            UserCrudResolver,
+            TaskCrudResolver,
+            LabelCrudResolver
+        ],
+        emitSchemaFile: path.resolve(__dirname, "./generated-schema.graphql"),
         dateScalarMode: "isoDate",
-        authChecker: customAuthChecker
+        validate: false,
     });
 
     const prisma = new PrismaClient({
@@ -29,43 +42,14 @@ async function bootstrap() {
 
     const server = new ApolloServer({
         schema,
-        tracing: true,
-        // cacheControl: true,
-        subscriptions: {
-            onConnect: async (connectionParams, webSocket, context) => {
-                console.log(`Subscription client connect.`)
-            },
-            onDisconnect: async (webSocket, context) => {
-                console.log(`Subscription client disconnected.`)
-            }
-        },
-        context: ({ req, connection }) => {
-
-            if (!req || !req.headers) {
-                return {
-                    prisma,
-                    pubsub
-                };
-            }
-
-            const token = req.get("Authorization");
-            const user = authChecker(token);
-
-            return {
-                ...req,
-                prisma,
-                pubsub,
-                user,
-            }
-        },
         playground: true,
+        tracing: true,
         cors: true,
+        context: (): Context => ({ prisma }),
     });
 
-    // server.start(({ port }) => console.log(`Server is running on http://localhost:${port}`)).then(r => console.log(r));
-    const { url, subscriptionsUrl } = await server.listen(4000);
-    console.log(`🚀 Server ready at ${url}`);
-    console.log(`🚀 Subscriptions ready at ${subscriptionsUrl}`);
+    const { port } = await server.listen(4000);
+    console.log(`🚀 Server ready at ${port}`);
 }
 
-bootstrap();
+main().catch(console.error);

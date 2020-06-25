@@ -1,51 +1,40 @@
 import { Arg, Ctx, Mutation, Resolver } from "type-graphql";
 import { compare, hash } from "bcryptjs";
 import { sign } from "jsonwebtoken";
-import { PrismaClient, User as PrismaUser } from "../../prisma/client";
-
-import AuthInput from "./AuthInput";
 import Auth from "./Auth";
+import AuthInput from "./AuthInput";
+import { Context } from "../../index";
 import { AuthInterfacePayload } from "./AuthInterface";
 
+
 @Resolver(of => Auth)
-export default class {
+export class CustomAuthResolver {
     private APP_ENV: string = 'das|56da6?3243562#';
 
-    /**
-     * Registracia uzivatela
-     * @param signUpInput
-     * @param prisma
-     */
     @Mutation(returns => Auth)
     async signup(
-        @Arg("input") signUpInput: AuthInput,
-        @Ctx("prisma") prisma: PrismaClient
+        @Arg("data") signUpInput: AuthInput,
+        @Ctx() { prisma }: Context,
     ): Promise<AuthInterfacePayload> {
+        console.log(signUpInput);
 
-        const password: string = await hash(signUpInput.password, 10);
-        const user: PrismaUser = await prisma.user.create({ data: { ...signUpInput, password } });
-        const token: string = sign({ userId: user.id }, this.APP_ENV);
+        const password = await hash(signUpInput.password, 10);
+        const user = await prisma.user.create({ data: { ...signUpInput, password } });
+        const token = sign({ userId: user.id }, this.APP_ENV);
 
         return {
-            success: true,
             token,
             user
         }
     }
 
-    /**
-     * Prihlasenie uzivatela
-     * @param email
-     * @param password
-     * @param prisma
-     */
     @Mutation(returns => Auth)
     async login(
-        @Arg("input") { email, password }: AuthInput,
-        @Ctx("prisma") prisma: PrismaClient
+        @Arg("data") { email, password }: AuthInput,
+        @Ctx() { prisma }: Context,
     ): Promise<AuthInterfacePayload> {
 
-        const user: PrismaUser | null = await prisma.user.findOne({
+        const user = await prisma.user.findOne({
             where: {
                 email
             }
@@ -62,7 +51,6 @@ export default class {
         const token = sign({ userId: user.id }, this.APP_ENV);
 
         return {
-            success: true,
             token,
             user
         }
