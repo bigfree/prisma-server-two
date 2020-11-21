@@ -3,8 +3,8 @@ import { compare, hash } from "bcryptjs";
 import { sign } from "jsonwebtoken";
 import Auth from "./Auth";
 import AuthInput from "./AuthInput";
-import { Context } from "../../index";
 import { AuthInterfacePayload } from "./AuthInterface";
+import { Context } from "../../interface/apolloserver.context.interface";
 
 
 @Resolver(of => Auth)
