@@ -1,33 +1,22 @@
 import { PrismaClient } from "@prisma/client";
 import { ApolloServer } from "apollo-server";
-import express from "express";
 import { GraphQLSchema } from "graphql";
 import path from "path";
 import "reflect-metadata";
-import { Authorized, buildSchema } from 'type-graphql';
+import { buildSchema } from 'type-graphql';
 import {
     applyResolversEnhanceMap,
     LabelCrudResolver,
     LabelRelationsResolver,
-    ResolversEnhanceMap,
     TaskCrudResolver,
     TaskRelationsResolver,
     UserCrudResolver,
     UserRelationsResolver
 } from "../prisma/generated/type-graphql";
-import { authChecker, getUser } from './AuthChecker';
 import { CustomAuthResolver } from "./__schemas/auth/AuthResolver"
-
-export interface Context {
-    user: string | boolean;
-    prisma: PrismaClient;
-}
-
-const resolversEnhanceMap: ResolversEnhanceMap = {
-    Task: {
-        createTask: [Authorized()],
-    }
-};
+import { authChecker, getUser } from './AuthChecker';
+import { Context } from "./interface/apolloserver.context.interface";
+import { resolversEnhanceMap } from "./maps";
 
 applyResolversEnhanceMap(resolversEnhanceMap);
 
@@ -45,7 +34,7 @@ async function main() {
         emitSchemaFile: path.resolve(__dirname, "./generated-schema.graphql"),
         dateScalarMode: "isoDate",
         validate: false,
-        authChecker,
+        authChecker
     });
 
     const prisma: any = new PrismaClient({

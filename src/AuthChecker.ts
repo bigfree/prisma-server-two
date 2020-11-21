@@ -1,12 +1,6 @@
 import { verify } from "jsonwebtoken";
 import { AuthChecker } from "type-graphql";
 
-export class AuthError extends Error {
-    constructor() {
-        super('Not authorized');
-    }
-}
-
 /**
  * Get user id by JWT token
  * @param {string | null} fullToken
@@ -24,11 +18,10 @@ export function getUser(fullToken: string | null): string | boolean {
 
 /**
  * Check if user is login
- * @param {any} user
+ * @param {string|boolean} user
  * @param {any[]} roles
  * @returns {boolean}
  */
-export const authChecker: AuthChecker<any, any> = ({ context: { user } }, roles) => {
-    console.log(user, !!user);
+export const authChecker: AuthChecker<string|boolean> = ({ context: { user } }: any, roles: any[]): boolean => {
     return !!user;
 }
