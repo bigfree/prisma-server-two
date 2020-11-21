@@ -1,0 +1,6 @@
+# Prisma Migrate lockfile v1
+
+20200625161920-init
+20200625165938-update-up
+20201121162102-add-enum-role
+20201121164704-workspace

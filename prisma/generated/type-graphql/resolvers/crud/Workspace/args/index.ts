@@ -1,0 +1,10 @@
+export { AggregateWorkspaceArgs } from "./AggregateWorkspaceArgs";
+export { CreateWorkspaceArgs } from "./CreateWorkspaceArgs";
+export { DeleteManyWorkspaceArgs } from "./DeleteManyWorkspaceArgs";
+export { DeleteWorkspaceArgs } from "./DeleteWorkspaceArgs";
+export { FindFirstWorkspaceArgs } from "./FindFirstWorkspaceArgs";
+export { FindManyWorkspaceArgs } from "./FindManyWorkspaceArgs";
+export { FindOneWorkspaceArgs } from "./FindOneWorkspaceArgs";
+export { UpdateManyWorkspaceArgs } from "./UpdateManyWorkspaceArgs";
+export { UpdateWorkspaceArgs } from "./UpdateWorkspaceArgs";
+export { UpsertWorkspaceArgs } from "./UpsertWorkspaceArgs";
