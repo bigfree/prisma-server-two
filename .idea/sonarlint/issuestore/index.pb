@@ -80,3 +80,5 @@ Qprisma/generated/type-graphql/resolvers/relations/Label/LabelRelationsResolver.
 ,prisma/generated/type-graphql/models/Task.ts,0\4\04cad7dd8efb316549ec106c35ec359c6a2b3cdd
 \
 ,prisma/generated/type-graphql/models/User.ts,5\a\5a77cc7458352d754f758064ec1e1f5e8b96f692
+L
+src/generated-schema.graphql,6\1\6129050b779cefed99b991c77b1d39ff5c2487c4

@@ -9,23 +9,34 @@ generator client {
 }
 
 generator typegraphql {
-  provider = "node node_modules/typegraphql-prisma/generator.js"
+  provider = "typegraphql-prisma"
   output   = "../prisma/generated/type-graphql"
 }
 
+model Workspace {
+id String @id @default(uuid())
+name String
+slug String @unique
+description String?
+createdAt DateTime @default(now())
+updatedAt DateTime? @updatedAt
+  deletedAt DateTime?
+}
+
 model User {
-  id        String    @default(cuid()) @id
+  id        String    @id @default(uuid())
   email     String    @unique
   name      String?
   password  String
   createdAt DateTime  @default(now())
   updatedAt DateTime? @updatedAt
   deletedAt DateTime?
+  role      Role      @default(USER)
   tasks     Task[]
 }
 
 model Task {
-  id        String    @default(cuid()) @id
+  id        String    @id @default(uuid())
   name      String
   content   String?
   createdAt DateTime  @default(now())
@@ -38,8 +49,14 @@ model Task {
 }
 
 model Label {
-  id        String   @default(cuid()) @id
+  id        String   @id @default(uuid())
   name      String   @unique
   createdAt DateTime @default(now())
   tasks     Task[]   @relation(references: [id])
+}
+
+enum Role {
+    USER
+    WORKSPACEADMIN
+    WORKSPACEOWNER
 }
