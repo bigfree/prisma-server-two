@@ -9,14 +9,6 @@
 prisma/.env,b\c\bca3f3831b50fcd5d4e24cb6185e091081fd7c4e
 D
 prisma/schema.prisma,1\8\187e4a6f168cf143dde68ce28a29ae08ce9b9578
-F
-src/resolvers/Query.ts,9\3\93ddf12c542b62b4cc4f471e0ae7b62a11fa1ebd
-F
-src/resolvers/index.ts,e\2\e28251fdf1e2b9961358ac299489ebad18876543
-N
-src/resolvers/Mutation/auth.ts,d\4\d4935be29f245c15e138db99f677f242bdabb3b7
-<
-src/utils.ts,d\4\d49e08f18c892b96c4d1034b9bcf7fb205670d6f
 ù
 m.idea/dataSources/1b31337c-ea1c-42f8-9d3c-6eaba03acfc6/storage_v2/_src_/schema/information_schema.FNRwLQ.meta,3\b\3b10d2434c9b29a2276ab5c5ded8d29e3e3d6790
 ë
@@ -42,36 +34,14 @@ B
 	yarn.lock,5\3\53585a096fe3a3b96321113856ae62602995a33b
 4
 .env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
-M
-src/schemas/auth/AuthInput.ts,8\9\89993a5b3a910f89a012a1fa5454d991489dda40
-H
-src/schemas/auth/Auth.ts,2\a\2a6dd0cb10d74ee5919694f406071423b1efa3d7
-Q
-!src/schemas/auth/AuthInterface.ts,1\b\1bd9bcea1c4dc6d3da19f1f4f0ebd02a6edaab8b
-O
-src/middlewares/auth-asscess.ts,8\5\85ddffcc060322014d567df9a9e3230052bf30d3
 B
 src/AuthChecker.ts,b\0\b0ed8ee88748199d0c967470b6f9f5a19aac9473
-P
- src/schemas/user/UserResolver.ts,8\5\854666fa9f4f04a0e6e44e4add8026ea193d3683
-P
- src/schemas/auth/AuthResolver.ts,9\6\96a51fafe6bbfcd78226e9401c83bf18e10ed721
 s
 Cprisma/Studio/-Dokumenty-MyProjects-prisma-server-two/schema.prisma,7\1\71ad5a5ec6a8a2b66da4bc9017ac4d4e86a920a0
 T
 $.idea/codeStyles/codeStyleConfig.xml,d\d\dd7b3350c29c49497756c7f32c69a3bed18b1cba
-Q
-!src/schemas/test/test.resolver.ts,2\3\23c21008e021ea238aebcbdd7b029cadd78d44b9
-H
-src/schemas/test/test.ts,a\3\a3e614b1630cb1ba9730d286dffcb49b2e678f58
-P
- src/schemas/test/test.filters.ts,3\5\35345134c8d632a6f0c68b4412dc3c0ec0fb2976
->
-yarn-error.log,f\3\f3b7336f891b6569b2fd4a67fd391439c7eb76e3
 p
 @prisma/Studio/-Dokumenty-MyProjects-prisma-server-two/index.d.ts,c\b\cb254a83da8b0626ab8074700efa0c76f64ec53f
-D
-src/testIndexTest.ts,b\0\b031c7f0a005bb23956375595d71f5f1b345e9db
 Å
 Qprisma/generated/type-graphql/resolvers/relations/Label/LabelRelationsResolver.ts,1\f\1fa4bbc3f2fa57f378290014f5ac6d9460ebc7bb
 ]
@@ -82,3 +52,43 @@ Qprisma/generated/type-graphql/resolvers/relations/Label/LabelRelationsResolver.
 ,prisma/generated/type-graphql/models/User.ts,5\a\5a77cc7458352d754f758064ec1e1f5e8b96f692
 L
 src/generated-schema.graphql,6\1\6129050b779cefed99b991c77b1d39ff5c2487c4
+V
+&prisma/generated/type-graphql/index.ts,3\c\3c94aed2f769518ea6b825d754ce43e207702d88
+u
+Eprisma/generated/type-graphql/resolvers/crud/Task/TaskCrudResolver.ts,c\9\c9120d3df4feceba45ead0919aab261863c4fd55
+P
+ src/__resolvers/Mutation/auth.ts,f\6\f6b0a28ce01025f9d3f4d5a88fa8defa3b0f64e5
+H
+src/__resolvers/index.ts,8\8\8821a5e75b3f499b3c75311f70e9c03e0a461e56
+H
+src/__resolvers/Query.ts,1\3\13ba8c9c0cedb3b6cc64fd1f28e30f8b88c2316d
+J
+src/__schemas/auth/Auth.ts,0\f\0fddf89bcd2f9e0b35fd1bd0aa2f40be21b4b318
+O
+src/__schemas/auth/AuthInput.ts,5\4\5445cd3ca2847bdba74139286ba53e9577ec7223
+S
+#src/__schemas/auth/AuthInterface.ts,6\8\6853a85c0e11c18e4c6f4f71ddcbbd291af46bf9
+R
+"src/__schemas/auth/AuthResolver.ts,2\7\2708a666cbad610f248bd7ebc55e80f66b4e73ef
+R
+"src/__schemas/test/test.filters.ts,3\2\32b8daac90247ec2bfeae7267d861031c24b86c8
+S
+#src/__schemas/test/test.resolver.ts,8\9\8904e3dc1fde9b64dd800b92863b653c3a0bf1fc
+J
+src/__schemas/test/test.ts,b\4\b47d8471e146abfaa18ce6f9bb7e88e5539dbbeb
+R
+"src/__schemas/user/UserResolver.ts,6\4\645229eebe9955dc9b3c874eb92d08ac83a702ba
+Q
+!src/__middlewares/auth-asscess.ts,2\9\291ea58980f5e63aaa003e32dde478d0563439c8
+_
+/src/interface/apolloserver.context.interface.ts,b\0\b0f0b7085f3df5bbeafb77f6089d05a5aebe2950
+A
+src/maps/index.ts,8\2\82736719c2b793475b4814661c8239ea4d5a1dc0
+F
+src/maps/labels.map.ts,2\1\21f5bdaf4dd47ee8c6f6b40a627f4d5fe130cc4b
+E
+src/maps/tasks.map.ts,6\0\60d37d22029d40dceaa2954a3ba9a3087042a6e5
+E
+src/maps/users.map.ts,f\0\f044b05505ebe994ef464a92a89cd6282ac7d61e
+I
+src/maps/workspace.map.ts,8\8\88fd56e12eb7975f4b6556b1dbfe7a23650b7967

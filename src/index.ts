@@ -54,7 +54,7 @@ async function main() {
         },
     });
 
-    const {port} = await server.listen(4000);
+    const {port} = await server.listen(process.env.PORT || 3000);
     console.log(`🚀 Server ready at ${port}`);
 }
 
