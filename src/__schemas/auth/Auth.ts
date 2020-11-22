@@ -1,5 +1,5 @@
 import { Field, ObjectType } from "type-graphql";
-import { User } from "../../../prisma/generated/type-graphql/models";
+import { User } from "../../prisma/generated/type-graphql/models";
 
 @ObjectType({ description: "Auth payload" })
 export default class Auth {

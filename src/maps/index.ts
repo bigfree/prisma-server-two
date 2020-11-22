@@ -1,4 +1,4 @@
-import { ResolversEnhanceMap } from "../../prisma/generated/type-graphql";
+import { ResolversEnhanceMap } from "../prisma/generated/type-graphql";
 import { labelActionConfig } from "./labels.map";
 import { taskActionConfig } from "./tasks.map";
 import { userActionConfig } from "./users.map";

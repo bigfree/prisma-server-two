@@ -12,7 +12,7 @@ import {
     TaskRelationsResolver,
     UserCrudResolver,
     UserRelationsResolver
-} from "../prisma/generated/type-graphql";
+} from "./prisma/generated/type-graphql";
 import { CustomAuthResolver } from "./__schemas/auth/AuthResolver"
 import { authChecker, getUser } from './AuthChecker';
 import { Context } from "./interface/apolloserver.context.interface";

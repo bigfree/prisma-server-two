@@ -1,5 +1,5 @@
 import { Authorized } from "type-graphql";
-import { ResolverActionsConfig } from "../../prisma/generated/type-graphql";
+import { ResolverActionsConfig } from "../prisma/generated/type-graphql";
 
 const authorizedArray = [Authorized()];
 
