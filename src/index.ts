@@ -46,6 +46,7 @@ async function main() {
         schema,
         playground: true,
         tracing: true,
+        introspection: true,
         cors: true,
         context: ({req}): Context => {
             const token = req.headers.authorization || null;
