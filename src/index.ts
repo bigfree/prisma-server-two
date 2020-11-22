@@ -13,7 +13,7 @@ import {
     UserCrudResolver,
     UserRelationsResolver
 } from "./prisma/generated/type-graphql";
-import { CustomAuthResolver } from "./__schemas/auth/AuthResolver"
+import { CustomAuthResolver } from "./schemas/auth/AuthResolver"
 import { authChecker, getUser } from './AuthChecker';
 import { Context } from "./interface/apolloserver.context.interface";
 import { resolversEnhanceMap } from "./maps";
@@ -54,7 +54,7 @@ async function main() {
         },
     });
 
-    const {port} = await server.listen(process.env.PORT || 3000);
+    const {port} = await server.listen(process.env.PORT || 4000);
     console.log(`🚀 Server ready at ${port}`);
 }
 
