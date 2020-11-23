@@ -1,0 +1,81 @@
+datasource db {
+  default  = true
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  output   = "../src/prisma/generated/type-graphql"
+}
+
+// TODO: priprava na workspace
+model Workspace {
+  id          String    @id @default(uuid())
+  name        String
+  slug        String    @unique
+  description String?
+  image       String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime? @updatedAt
+  deletedAt   DateTime?
+  user        User      @relation(fields: [userId], references: [id])
+  userId      String
+}
+
+model Project {
+  id           String    @id @default(uuid())
+  name         String
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime? @updatedAt
+  deletedAt    DateTime?
+  projectOwner User      @relation("ProjectOwner", fields: [userId], references: [id])
+  userId       String
+  users        User[]
+}
+
+model User {
+  id         String      @id @default(uuid())
+  email      String      @unique
+  name       String?
+  password   String
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime?   @updatedAt
+  deletedAt  DateTime?
+  role       Role        @default(USER)
+  tasks      Task[]
+  workspaces Workspace[]
+  projects   Project[]
+  project    Project[]   @relation("ProjectOwner")
+}
+
+model Task {
+  id        String    @id @default(uuid())
+  name      String
+  content   String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime? @updatedAt
+  deletedAt DateTime?
+  archiveAt DateTime?
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String
+  labels    Label[]   @relation(references: [id])
+}
+
+model Label {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+  tasks     Task[]   @relation(references: [id])
+}
+
+enum Role {
+  USER
+  PROJECTOWNER
+  WORKSPACEADMIN
+  WORKSPACEOWNER
+}
