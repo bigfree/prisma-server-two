@@ -5,9 +5,11 @@ export enum WorkspaceDistinctFieldEnum {
   name = "name",
   slug = "slug",
   description = "description",
+  image = "image",
   createdAt = "createdAt",
   updatedAt = "updatedAt",
-  deletedAt = "deletedAt"
+  deletedAt = "deletedAt",
+  userId = "userId"
 }
 TypeGraphQL.registerEnumType(WorkspaceDistinctFieldEnum, {
   name: "WorkspaceDistinctFieldEnum",

@@ -1,6 +1,7 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
+import { User } from "../models/User";
 
 @TypeGraphQL.ObjectType({
   isAbstract: true,
@@ -32,6 +33,12 @@ export class Workspace {
   })
   description?: string | null;
 
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true,
+    description: undefined,
+  })
+  image?: string | null;
+
   @TypeGraphQL.Field(_type => Date, {
     nullable: false,
     description: undefined,
@@ -49,4 +56,12 @@ export class Workspace {
     description: undefined,
   })
   deletedAt?: Date | null;
+
+  user?: User;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: false,
+    description: undefined,
+  })
+  userId!: string;
 }

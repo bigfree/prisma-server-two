@@ -1,12 +1,14 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { DateTimeFilter } from "./DateTimeFilter";
-import { DateTimeNullableFilter } from "./DateTimeNullableFilter";
-import { EnumRoleFilter } from "./EnumRoleFilter";
-import { StringFilter } from "./StringFilter";
-import { StringNullableFilter } from "./StringNullableFilter";
-import { TaskListRelationFilter } from "./TaskListRelationFilter";
+import { DateTimeFilter } from "../inputs/DateTimeFilter";
+import { DateTimeNullableFilter } from "../inputs/DateTimeNullableFilter";
+import { EnumRoleFilter } from "../inputs/EnumRoleFilter";
+import { ProjectListRelationFilter } from "../inputs/ProjectListRelationFilter";
+import { StringFilter } from "../inputs/StringFilter";
+import { StringNullableFilter } from "../inputs/StringNullableFilter";
+import { TaskListRelationFilter } from "../inputs/TaskListRelationFilter";
+import { WorkspaceListRelationFilter } from "../inputs/WorkspaceListRelationFilter";
 
 @TypeGraphQL.InputType({
   isAbstract: true,
@@ -84,4 +86,22 @@ export class UserWhereInput {
     description: undefined
   })
   tasks?: TaskListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => WorkspaceListRelationFilter, {
+    nullable: true,
+    description: undefined
+  })
+  workspaces?: WorkspaceListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => ProjectListRelationFilter, {
+    nullable: true,
+    description: undefined
+  })
+  projects?: ProjectListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => ProjectListRelationFilter, {
+    nullable: true,
+    description: undefined
+  })
+  project?: ProjectListRelationFilter | undefined;
 }

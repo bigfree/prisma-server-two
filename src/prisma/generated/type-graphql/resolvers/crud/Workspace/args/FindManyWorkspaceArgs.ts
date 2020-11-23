@@ -23,5 +23,5 @@ export class FindManyWorkspaceArgs {
   skip?: number | undefined;
 
   @TypeGraphQL.Field(_type => [WorkspaceDistinctFieldEnum], { nullable: true })
-  distinct?: Array<"id" | "name" | "slug" | "description" | "createdAt" | "updatedAt" | "deletedAt"> | undefined;
+  distinct?: Array<"id" | "name" | "slug" | "description" | "image" | "createdAt" | "updatedAt" | "deletedAt" | "userId"> | undefined;
 }

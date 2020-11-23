@@ -1,8 +1,8 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { LabelCreateManyWithoutTasksInput } from "./LabelCreateManyWithoutTasksInput";
-import { UserCreateOneWithoutTasksInput } from "./UserCreateOneWithoutTasksInput";
+import { LabelCreateManyWithoutTasksInput } from "../inputs/LabelCreateManyWithoutTasksInput";
+import { UserCreateOneWithoutTasksInput } from "../inputs/UserCreateOneWithoutTasksInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true,

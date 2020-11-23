@@ -1,7 +1,7 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { NestedDateTimeNullableFilter } from "./NestedDateTimeNullableFilter";
+import { NestedDateTimeNullableFilter } from "../inputs/NestedDateTimeNullableFilter";
 
 @TypeGraphQL.InputType({
   isAbstract: true,

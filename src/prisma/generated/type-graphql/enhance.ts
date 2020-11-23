@@ -3,6 +3,7 @@ import * as actionResolvers from "./resolvers/crud/resolvers-actions.index";
 
 const crudResolversMap = {
   Workspace: crudResolvers.WorkspaceCrudResolver,
+  Project: crudResolvers.ProjectCrudResolver,
   User: crudResolvers.UserCrudResolver,
   Task: crudResolvers.TaskCrudResolver,
   Label: crudResolvers.LabelCrudResolver
@@ -19,6 +20,18 @@ const actionResolversMap = {
     updateManyWorkspace: actionResolvers.UpdateManyWorkspaceResolver,
     upsertWorkspace: actionResolvers.UpsertWorkspaceResolver,
     aggregateWorkspace: actionResolvers.AggregateWorkspaceResolver
+  },
+  Project: {
+    project: actionResolvers.FindOneProjectResolver,
+    findFirstProject: actionResolvers.FindFirstProjectResolver,
+    projects: actionResolvers.FindManyProjectResolver,
+    createProject: actionResolvers.CreateProjectResolver,
+    deleteProject: actionResolvers.DeleteProjectResolver,
+    updateProject: actionResolvers.UpdateProjectResolver,
+    deleteManyProject: actionResolvers.DeleteManyProjectResolver,
+    updateManyProject: actionResolvers.UpdateManyProjectResolver,
+    upsertProject: actionResolvers.UpsertProjectResolver,
+    aggregateProject: actionResolvers.AggregateProjectResolver
   },
   User: {
     user: actionResolvers.FindOneUserResolver,

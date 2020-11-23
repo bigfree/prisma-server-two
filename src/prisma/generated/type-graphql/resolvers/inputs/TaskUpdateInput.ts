@@ -1,12 +1,12 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { DateTimeFieldUpdateOperationsInput } from "./DateTimeFieldUpdateOperationsInput";
-import { LabelUpdateManyWithoutTasksInput } from "./LabelUpdateManyWithoutTasksInput";
-import { NullableDateTimeFieldUpdateOperationsInput } from "./NullableDateTimeFieldUpdateOperationsInput";
-import { NullableStringFieldUpdateOperationsInput } from "./NullableStringFieldUpdateOperationsInput";
-import { StringFieldUpdateOperationsInput } from "./StringFieldUpdateOperationsInput";
-import { UserUpdateOneRequiredWithoutTasksInput } from "./UserUpdateOneRequiredWithoutTasksInput";
+import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
+import { LabelUpdateManyWithoutTasksInput } from "../inputs/LabelUpdateManyWithoutTasksInput";
+import { NullableDateTimeFieldUpdateOperationsInput } from "../inputs/NullableDateTimeFieldUpdateOperationsInput";
+import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
+import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
+import { UserUpdateOneRequiredWithoutTasksInput } from "../inputs/UserUpdateOneRequiredWithoutTasksInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true,

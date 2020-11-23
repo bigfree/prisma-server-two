@@ -1,8 +1,8 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { Label } from "./Label";
-import { User } from "./User";
+import { Label } from "../models/Label";
+import { User } from "../models/User";
 
 @TypeGraphQL.ObjectType({
   isAbstract: true,

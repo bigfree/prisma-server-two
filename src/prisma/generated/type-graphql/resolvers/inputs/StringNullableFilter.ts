@@ -1,7 +1,7 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { NestedStringNullableFilter } from "./NestedStringNullableFilter";
+import { NestedStringNullableFilter } from "../inputs/NestedStringNullableFilter";
 import { QueryMode } from "../../enums/QueryMode";
 
 @TypeGraphQL.InputType({

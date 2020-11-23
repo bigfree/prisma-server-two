@@ -12,5 +12,5 @@ export class EnumRoleFieldUpdateOperationsInput {
     nullable: true,
     description: undefined
   })
-  set?: "USER" | "WORKSPACEADMIN" | "WORKSPACEOWNER" | undefined;
+  set?: "USER" | "PROJECTOWNER" | "WORKSPACEADMIN" | "WORKSPACEOWNER" | undefined;
 }

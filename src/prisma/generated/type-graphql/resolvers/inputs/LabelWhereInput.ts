@@ -1,9 +1,9 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { DateTimeFilter } from "./DateTimeFilter";
-import { StringFilter } from "./StringFilter";
-import { TaskListRelationFilter } from "./TaskListRelationFilter";
+import { DateTimeFilter } from "../inputs/DateTimeFilter";
+import { StringFilter } from "../inputs/StringFilter";
+import { TaskListRelationFilter } from "../inputs/TaskListRelationFilter";
 
 @TypeGraphQL.InputType({
   isAbstract: true,

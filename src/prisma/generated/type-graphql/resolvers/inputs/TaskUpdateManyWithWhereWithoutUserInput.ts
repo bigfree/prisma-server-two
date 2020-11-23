@@ -1,8 +1,8 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { TaskScalarWhereInput } from "./TaskScalarWhereInput";
-import { TaskUpdateManyMutationInput } from "./TaskUpdateManyMutationInput";
+import { TaskScalarWhereInput } from "../inputs/TaskScalarWhereInput";
+import { TaskUpdateManyMutationInput } from "../inputs/TaskUpdateManyMutationInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true,

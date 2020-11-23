@@ -1,7 +1,9 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { Task } from "./Task";
+import { Project } from "../models/Project";
+import { Task } from "../models/Task";
+import { Workspace } from "../models/Workspace";
 import { Role } from "../enums/Role";
 
 @TypeGraphQL.ObjectType({
@@ -56,7 +58,13 @@ export class User {
     nullable: false,
     description: undefined,
   })
-  role!: "USER" | "WORKSPACEADMIN" | "WORKSPACEOWNER";
+  role!: "USER" | "PROJECTOWNER" | "WORKSPACEADMIN" | "WORKSPACEOWNER";
 
   tasks?: Task[] | null;
+
+  workspaces?: Workspace[] | null;
+
+  projects?: Project[] | null;
+
+  project?: Project[] | null;
 }

@@ -36,6 +36,12 @@ export class WorkspaceOrderByInput {
     nullable: true,
     description: undefined
   })
+  image?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true,
+    description: undefined
+  })
   createdAt?: "asc" | "desc" | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
@@ -49,4 +55,10 @@ export class WorkspaceOrderByInput {
     description: undefined
   })
   deletedAt?: "asc" | "desc" | undefined;
+
+  @TypeGraphQL.Field(_type => SortOrder, {
+    nullable: true,
+    description: undefined
+  })
+  userId?: "asc" | "desc" | undefined;
 }

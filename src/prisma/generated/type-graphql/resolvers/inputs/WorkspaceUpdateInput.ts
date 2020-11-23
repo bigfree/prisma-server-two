@@ -1,10 +1,11 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { DateTimeFieldUpdateOperationsInput } from "./DateTimeFieldUpdateOperationsInput";
-import { NullableDateTimeFieldUpdateOperationsInput } from "./NullableDateTimeFieldUpdateOperationsInput";
-import { NullableStringFieldUpdateOperationsInput } from "./NullableStringFieldUpdateOperationsInput";
-import { StringFieldUpdateOperationsInput } from "./StringFieldUpdateOperationsInput";
+import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
+import { NullableDateTimeFieldUpdateOperationsInput } from "../inputs/NullableDateTimeFieldUpdateOperationsInput";
+import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
+import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
+import { UserUpdateOneRequiredWithoutWorkspacesInput } from "../inputs/UserUpdateOneRequiredWithoutWorkspacesInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true,
@@ -35,6 +36,12 @@ export class WorkspaceUpdateInput {
   })
   description?: NullableStringFieldUpdateOperationsInput | undefined;
 
+  @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
+    nullable: true,
+    description: undefined
+  })
+  image?: NullableStringFieldUpdateOperationsInput | undefined;
+
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true,
     description: undefined
@@ -52,4 +59,10 @@ export class WorkspaceUpdateInput {
     description: undefined
   })
   deletedAt?: NullableDateTimeFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => UserUpdateOneRequiredWithoutWorkspacesInput, {
+    nullable: true,
+    description: undefined
+  })
+  user?: UserUpdateOneRequiredWithoutWorkspacesInput | undefined;
 }

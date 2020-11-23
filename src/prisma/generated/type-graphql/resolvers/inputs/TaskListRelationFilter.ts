@@ -1,7 +1,7 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { TaskWhereInput } from "./TaskWhereInput";
+import { TaskWhereInput } from "../inputs/TaskWhereInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true,

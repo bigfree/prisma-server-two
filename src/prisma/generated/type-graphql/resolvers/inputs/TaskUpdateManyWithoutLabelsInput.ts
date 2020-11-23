@@ -1,13 +1,13 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { TaskCreateOrConnectWithoutlabelsInput } from "./TaskCreateOrConnectWithoutlabelsInput";
-import { TaskCreateWithoutLabelsInput } from "./TaskCreateWithoutLabelsInput";
-import { TaskScalarWhereInput } from "./TaskScalarWhereInput";
-import { TaskUpdateManyWithWhereWithoutLabelsInput } from "./TaskUpdateManyWithWhereWithoutLabelsInput";
-import { TaskUpdateWithWhereUniqueWithoutLabelsInput } from "./TaskUpdateWithWhereUniqueWithoutLabelsInput";
-import { TaskUpsertWithWhereUniqueWithoutLabelsInput } from "./TaskUpsertWithWhereUniqueWithoutLabelsInput";
-import { TaskWhereUniqueInput } from "./TaskWhereUniqueInput";
+import { TaskCreateOrConnectWithoutlabelsInput } from "../inputs/TaskCreateOrConnectWithoutlabelsInput";
+import { TaskCreateWithoutLabelsInput } from "../inputs/TaskCreateWithoutLabelsInput";
+import { TaskScalarWhereInput } from "../inputs/TaskScalarWhereInput";
+import { TaskUpdateManyWithWhereWithoutLabelsInput } from "../inputs/TaskUpdateManyWithWhereWithoutLabelsInput";
+import { TaskUpdateWithWhereUniqueWithoutLabelsInput } from "../inputs/TaskUpdateWithWhereUniqueWithoutLabelsInput";
+import { TaskUpsertWithWhereUniqueWithoutLabelsInput } from "../inputs/TaskUpsertWithWhereUniqueWithoutLabelsInput";
+import { TaskWhereUniqueInput } from "../inputs/TaskWhereUniqueInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true,

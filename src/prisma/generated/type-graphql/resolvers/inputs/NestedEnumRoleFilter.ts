@@ -12,19 +12,19 @@ export class NestedEnumRoleFilter {
     nullable: true,
     description: undefined
   })
-  equals?: "USER" | "WORKSPACEADMIN" | "WORKSPACEOWNER" | undefined;
+  equals?: "USER" | "PROJECTOWNER" | "WORKSPACEADMIN" | "WORKSPACEOWNER" | undefined;
 
   @TypeGraphQL.Field(_type => [Role], {
     nullable: true,
     description: undefined
   })
-  in?: Array<"USER" | "WORKSPACEADMIN" | "WORKSPACEOWNER"> | undefined;
+  in?: Array<"USER" | "PROJECTOWNER" | "WORKSPACEADMIN" | "WORKSPACEOWNER"> | undefined;
 
   @TypeGraphQL.Field(_type => [Role], {
     nullable: true,
     description: undefined
   })
-  notIn?: Array<"USER" | "WORKSPACEADMIN" | "WORKSPACEOWNER"> | undefined;
+  notIn?: Array<"USER" | "PROJECTOWNER" | "WORKSPACEADMIN" | "WORKSPACEOWNER"> | undefined;
 
   @TypeGraphQL.Field(_type => NestedEnumRoleFilter, {
     nullable: true,

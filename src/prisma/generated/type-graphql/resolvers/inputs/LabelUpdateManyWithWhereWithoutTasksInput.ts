@@ -1,8 +1,8 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { LabelScalarWhereInput } from "./LabelScalarWhereInput";
-import { LabelUpdateManyMutationInput } from "./LabelUpdateManyMutationInput";
+import { LabelScalarWhereInput } from "../inputs/LabelScalarWhereInput";
+import { LabelUpdateManyMutationInput } from "../inputs/LabelUpdateManyMutationInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true,

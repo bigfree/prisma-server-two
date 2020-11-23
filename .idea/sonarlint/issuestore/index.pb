@@ -5,10 +5,6 @@
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
 <
 src/index.ts,c\5\c5fb850250c7443c48a6c12b5cf6916773da31f1
-;
-prisma/.env,b\c\bca3f3831b50fcd5d4e24cb6185e091081fd7c4e
-D
-prisma/schema.prisma,1\8\187e4a6f168cf143dde68ce28a29ae08ce9b9578
 
 m.idea/dataSources/1b31337c-ea1c-42f8-9d3c-6eaba03acfc6/storage_v2/_src_/schema/information_schema.FNRwLQ.meta,3\b\3b10d2434c9b29a2276ab5c5ded8d29e3e3d6790
 ‘
@@ -23,8 +19,6 @@ L
 .idea/dictionaries/okuks.xml,3\8\383ac73c2a3a085753ae155127d1582128b7b399
 \
 ,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
-N
-prisma/migrations/migrate.lock,3\0\30c050a549c8383de2dcf90661a1bf7b279ccae8
 B
 src/.graphqlconfig,0\2\02bef92fea0ed3a9184d203cb8b650b110346c48
 :
@@ -36,50 +30,10 @@ B
 .env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
 B
 src/AuthChecker.ts,b\0\b0ed8ee88748199d0c967470b6f9f5a19aac9473
-s
-Cprisma/Studio/-Dokumenty-MyProjects-prisma-server-two/schema.prisma,7\1\71ad5a5ec6a8a2b66da4bc9017ac4d4e86a920a0
 T
 $.idea/codeStyles/codeStyleConfig.xml,d\d\dd7b3350c29c49497756c7f32c69a3bed18b1cba
-p
-@prisma/Studio/-Dokumenty-MyProjects-prisma-server-two/index.d.ts,c\b\cb254a83da8b0626ab8074700efa0c76f64ec53f
-
-Qprisma/generated/type-graphql/resolvers/relations/Label/LabelRelationsResolver.ts,1\f\1fa4bbc3f2fa57f378290014f5ac6d9460ebc7bb
-]
--prisma/generated/type-graphql/models/Label.ts,4\9\4923dbc694dec9f9d3138f78254561d212e67262
-\
-,prisma/generated/type-graphql/models/Task.ts,0\4\04cad7dd8efb316549ec106c35ec359c6a2b3cdd
-\
-,prisma/generated/type-graphql/models/User.ts,5\a\5a77cc7458352d754f758064ec1e1f5e8b96f692
 L
 src/generated-schema.graphql,6\1\6129050b779cefed99b991c77b1d39ff5c2487c4
-V
-&prisma/generated/type-graphql/index.ts,3\c\3c94aed2f769518ea6b825d754ce43e207702d88
-u
-Eprisma/generated/type-graphql/resolvers/crud/Task/TaskCrudResolver.ts,c\9\c9120d3df4feceba45ead0919aab261863c4fd55
-P
- src/__resolvers/Mutation/auth.ts,f\6\f6b0a28ce01025f9d3f4d5a88fa8defa3b0f64e5
-H
-src/__resolvers/index.ts,8\8\8821a5e75b3f499b3c75311f70e9c03e0a461e56
-H
-src/__resolvers/Query.ts,1\3\13ba8c9c0cedb3b6cc64fd1f28e30f8b88c2316d
-J
-src/__schemas/auth/Auth.ts,0\f\0fddf89bcd2f9e0b35fd1bd0aa2f40be21b4b318
-O
-src/__schemas/auth/AuthInput.ts,5\4\5445cd3ca2847bdba74139286ba53e9577ec7223
-S
-#src/__schemas/auth/AuthInterface.ts,6\8\6853a85c0e11c18e4c6f4f71ddcbbd291af46bf9
-R
-"src/__schemas/auth/AuthResolver.ts,2\7\2708a666cbad610f248bd7ebc55e80f66b4e73ef
-R
-"src/__schemas/test/test.filters.ts,3\2\32b8daac90247ec2bfeae7267d861031c24b86c8
-S
-#src/__schemas/test/test.resolver.ts,8\9\8904e3dc1fde9b64dd800b92863b653c3a0bf1fc
-J
-src/__schemas/test/test.ts,b\4\b47d8471e146abfaa18ce6f9bb7e88e5539dbbeb
-R
-"src/__schemas/user/UserResolver.ts,6\4\645229eebe9955dc9b3c874eb92d08ac83a702ba
-Q
-!src/__middlewares/auth-asscess.ts,2\9\291ea58980f5e63aaa003e32dde478d0563439c8
 _
 /src/interface/apolloserver.context.interface.ts,b\0\b0f0b7085f3df5bbeafb77f6089d05a5aebe2950
 A
@@ -92,3 +46,35 @@ E
 src/maps/users.map.ts,f\0\f044b05505ebe994ef464a92a89cd6282ac7d61e
 I
 src/maps/workspace.map.ts,8\8\88fd56e12eb7975f4b6556b1dbfe7a23650b7967
+H
+src/schemas/auth/Auth.ts,2\a\2a6dd0cb10d74ee5919694f406071423b1efa3d7
+M
+src/schemas/auth/AuthInput.ts,8\9\89993a5b3a910f89a012a1fa5454d991489dda40
+8
+Procfile,b\c\bc3c68e880d1a01632bce79f69dd1387c7ba9c54
+P
+ src/schemas/auth/AuthResolver.ts,9\6\96a51fafe6bbfcd78226e9401c83bf18e10ed721
+Q
+!src/schemas/auth/AuthInterface.ts,1\b\1bd9bcea1c4dc6d3da19f1f4f0ebd02a6edaab8b
+…
+Usrc/prisma/Studio/-Dokumenty-MyProjects-prisma-server-two/runtime/utils/deep-set.d.ts,a\e\ae7556f2579ec447e6d434cefa78e07e951c1ba9
+…
+Usrc/prisma/Studio/-Dokumenty-MyProjects-prisma-server-two/runtime/utils/uniqueBy.d.ts,e\8\e8f9b4759778f3b978332f92d8d4a405a01357fe
+ƒ
+Ssrc/prisma/Studio/-Dokumenty-MyProjects-prisma-server-two/runtime/utils/common.d.ts,8\6\86e99986f924cbdc7784b7889a18bcb4bc19e77b
+ƒ
+Ssrc/prisma/Studio/-Dokumenty-MyProjects-prisma-server-two/runtime/utils/dedent.d.ts,6\0\60b27dc6efe79ca3ae30c31b32708d282fa101b0
+
+Qsrc/prisma/Studio/-Dokumenty-MyProjects-prisma-server-two/runtime/utils/omit.d.ts,7\2\72aad35458f7b9851b3cbb71a02ae0d5f5240cf0
+ˆ
+Xsrc/prisma/Studio/-Dokumenty-MyProjects-prisma-server-two/runtime/utils/deep-extend.d.ts,d\8\d84e8cb33fde589dec480e350489d4047fabc118
+‡
+Wsrc/prisma/Studio/-Dokumenty-MyProjects-prisma-server-two/runtime/utils/printStack.d.ts,b\d\bde1c4856203cb979dbb7e8584af82165f2cda3b
+‰
+Ysrc/prisma/Studio/-Dokumenty-MyProjects-prisma-server-two/runtime/utils/filterObject.d.ts,b\f\bf04d02ca7d8eee12f00494100b6490e320420f0
+„
+Tsrc/prisma/Studio/-Dokumenty-MyProjects-prisma-server-two/runtime/utils/flatMap.d.ts,b\0\b08142dea812d60b648ed474c22deae43310d9af
+?
+src/prisma/.env,2\e\2e2b2b0bd03330c0cc66f5b5c5c0dd38b0c8ebb6
+H
+src/prisma/schema.prisma,c\2\c2fc485753b4e15300123788aee2f8d334ffc9a1

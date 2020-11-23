@@ -1,12 +1,15 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { DateTimeFieldUpdateOperationsInput } from "./DateTimeFieldUpdateOperationsInput";
-import { EnumRoleFieldUpdateOperationsInput } from "./EnumRoleFieldUpdateOperationsInput";
-import { NullableDateTimeFieldUpdateOperationsInput } from "./NullableDateTimeFieldUpdateOperationsInput";
-import { NullableStringFieldUpdateOperationsInput } from "./NullableStringFieldUpdateOperationsInput";
-import { StringFieldUpdateOperationsInput } from "./StringFieldUpdateOperationsInput";
-import { TaskUpdateManyWithoutUserInput } from "./TaskUpdateManyWithoutUserInput";
+import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
+import { EnumRoleFieldUpdateOperationsInput } from "../inputs/EnumRoleFieldUpdateOperationsInput";
+import { NullableDateTimeFieldUpdateOperationsInput } from "../inputs/NullableDateTimeFieldUpdateOperationsInput";
+import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
+import { ProjectUpdateManyWithoutProjectOwnerInput } from "../inputs/ProjectUpdateManyWithoutProjectOwnerInput";
+import { ProjectUpdateManyWithoutUsersInput } from "../inputs/ProjectUpdateManyWithoutUsersInput";
+import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
+import { TaskUpdateManyWithoutUserInput } from "../inputs/TaskUpdateManyWithoutUserInput";
+import { WorkspaceUpdateManyWithoutUserInput } from "../inputs/WorkspaceUpdateManyWithoutUserInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true,
@@ -66,4 +69,22 @@ export class UserUpdateInput {
     description: undefined
   })
   tasks?: TaskUpdateManyWithoutUserInput | undefined;
+
+  @TypeGraphQL.Field(_type => WorkspaceUpdateManyWithoutUserInput, {
+    nullable: true,
+    description: undefined
+  })
+  workspaces?: WorkspaceUpdateManyWithoutUserInput | undefined;
+
+  @TypeGraphQL.Field(_type => ProjectUpdateManyWithoutUsersInput, {
+    nullable: true,
+    description: undefined
+  })
+  projects?: ProjectUpdateManyWithoutUsersInput | undefined;
+
+  @TypeGraphQL.Field(_type => ProjectUpdateManyWithoutProjectOwnerInput, {
+    nullable: true,
+    description: undefined
+  })
+  project?: ProjectUpdateManyWithoutProjectOwnerInput | undefined;
 }

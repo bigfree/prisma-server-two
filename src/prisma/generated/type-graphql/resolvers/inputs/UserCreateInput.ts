@@ -1,7 +1,10 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { TaskCreateManyWithoutUserInput } from "./TaskCreateManyWithoutUserInput";
+import { ProjectCreateManyWithoutProjectOwnerInput } from "../inputs/ProjectCreateManyWithoutProjectOwnerInput";
+import { ProjectCreateManyWithoutUsersInput } from "../inputs/ProjectCreateManyWithoutUsersInput";
+import { TaskCreateManyWithoutUserInput } from "../inputs/TaskCreateManyWithoutUserInput";
+import { WorkspaceCreateManyWithoutUserInput } from "../inputs/WorkspaceCreateManyWithoutUserInput";
 import { Role } from "../../enums/Role";
 
 @TypeGraphQL.InputType({
@@ -55,11 +58,29 @@ export class UserCreateInput {
     nullable: true,
     description: undefined
   })
-  role?: "USER" | "WORKSPACEADMIN" | "WORKSPACEOWNER" | undefined;
+  role?: "USER" | "PROJECTOWNER" | "WORKSPACEADMIN" | "WORKSPACEOWNER" | undefined;
 
   @TypeGraphQL.Field(_type => TaskCreateManyWithoutUserInput, {
     nullable: true,
     description: undefined
   })
   tasks?: TaskCreateManyWithoutUserInput | undefined;
+
+  @TypeGraphQL.Field(_type => WorkspaceCreateManyWithoutUserInput, {
+    nullable: true,
+    description: undefined
+  })
+  workspaces?: WorkspaceCreateManyWithoutUserInput | undefined;
+
+  @TypeGraphQL.Field(_type => ProjectCreateManyWithoutUsersInput, {
+    nullable: true,
+    description: undefined
+  })
+  projects?: ProjectCreateManyWithoutUsersInput | undefined;
+
+  @TypeGraphQL.Field(_type => ProjectCreateManyWithoutProjectOwnerInput, {
+    nullable: true,
+    description: undefined
+  })
+  project?: ProjectCreateManyWithoutProjectOwnerInput | undefined;
 }
