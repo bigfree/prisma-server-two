@@ -4,19 +4,23 @@ import { GraphQLSchema } from "graphql";
 import path from "path";
 import "reflect-metadata";
 import { buildSchema } from 'type-graphql';
+import { authChecker, getUser } from './AuthChecker';
+import { Context } from "./interface/apolloserver.context.interface";
+import { resolversEnhanceMap } from "./maps";
 import {
     applyResolversEnhanceMap,
     LabelCrudResolver,
     LabelRelationsResolver,
+    ProjectCrudResolver,
+    ProjectRelationsResolver,
     TaskCrudResolver,
     TaskRelationsResolver,
     UserCrudResolver,
-    UserRelationsResolver
+    UserRelationsResolver,
+    WorkspaceCrudResolver,
+    WorkspaceRelationsResolver
 } from "./prisma/generated/type-graphql";
 import { CustomAuthResolver } from "./schemas/auth/AuthResolver"
-import { authChecker, getUser } from './AuthChecker';
-import { Context } from "./interface/apolloserver.context.interface";
-import { resolversEnhanceMap } from "./maps";
 
 applyResolversEnhanceMap(resolversEnhanceMap);
 
@@ -29,7 +33,11 @@ async function main() {
             LabelRelationsResolver,
             UserCrudResolver,
             TaskCrudResolver,
-            LabelCrudResolver
+            LabelCrudResolver,
+            WorkspaceCrudResolver,
+            WorkspaceRelationsResolver,
+            ProjectCrudResolver,
+            ProjectRelationsResolver,
         ],
         emitSchemaFile: path.resolve(__dirname, "./generated-schema.graphql"),
         dateScalarMode: "isoDate",
