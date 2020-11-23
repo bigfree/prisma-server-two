@@ -1,7 +1,7 @@
 import * as TypeGraphQL from "type-graphql";
 import { Project } from "../../../models/Project";
 import { User } from "../../../models/User";
-import { ProjectUsersArgs } from "./args/ProjectUsersArgs";
+import { ProjectAssignUsersArgs } from "./args/ProjectAssignUsersArgs";
 
 @TypeGraphQL.Resolver(_of => Project)
 export class ProjectRelationsResolver {
@@ -21,11 +21,11 @@ export class ProjectRelationsResolver {
     nullable: true,
     description: undefined,
   })
-  async users(@TypeGraphQL.Root() project: Project, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: ProjectUsersArgs): Promise<User[] | null> {
+  async assignUsers(@TypeGraphQL.Root() project: Project, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: ProjectAssignUsersArgs): Promise<User[] | null> {
     return ctx.prisma.project.findOne({
       where: {
         id: project.id,
       },
-    }).users(args);
+    }).assignUsers(args);
   }
 }

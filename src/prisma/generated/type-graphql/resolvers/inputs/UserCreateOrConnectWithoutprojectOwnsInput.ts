@@ -1,23 +1,23 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { UserCreateWithoutProjectInput } from "../inputs/UserCreateWithoutProjectInput";
+import { UserCreateWithoutProjectOwnsInput } from "../inputs/UserCreateWithoutProjectOwnsInput";
 import { UserWhereUniqueInput } from "../inputs/UserWhereUniqueInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true,
   description: undefined,
 })
-export class UserCreateOrConnectWithoutprojectInput {
+export class UserCreateOrConnectWithoutprojectOwnsInput {
   @TypeGraphQL.Field(_type => UserWhereUniqueInput, {
     nullable: false,
     description: undefined
   })
   where!: UserWhereUniqueInput;
 
-  @TypeGraphQL.Field(_type => UserCreateWithoutProjectInput, {
+  @TypeGraphQL.Field(_type => UserCreateWithoutProjectOwnsInput, {
     nullable: false,
     description: undefined
   })
-  create!: UserCreateWithoutProjectInput;
+  create!: UserCreateWithoutProjectOwnsInput;
 }

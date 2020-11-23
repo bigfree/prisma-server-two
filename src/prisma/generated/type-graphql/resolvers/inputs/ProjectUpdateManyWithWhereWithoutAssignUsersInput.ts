@@ -8,7 +8,7 @@ import { ProjectUpdateManyMutationInput } from "../inputs/ProjectUpdateManyMutat
   isAbstract: true,
   description: undefined,
 })
-export class ProjectUpdateManyWithWhereWithoutUsersInput {
+export class ProjectUpdateManyWithWhereWithoutAssignUsersInput {
   @TypeGraphQL.Field(_type => ProjectScalarWhereInput, {
     nullable: false,
     description: undefined

@@ -66,5 +66,5 @@ export class User {
 
   projects?: Project[] | null;
 
-  project?: Project[] | null;
+  projectOwns?: Project[] | null;
 }

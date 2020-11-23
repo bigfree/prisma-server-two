@@ -42,5 +42,5 @@ export class ProjectCreateWithoutProjectOwnerInput {
     nullable: true,
     description: undefined
   })
-  users?: UserCreateManyWithoutProjectsInput | undefined;
+  assignUsers?: UserCreateManyWithoutProjectsInput | undefined;
 }

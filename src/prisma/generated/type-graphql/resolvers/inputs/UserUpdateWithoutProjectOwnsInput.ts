@@ -5,7 +5,7 @@ import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdat
 import { EnumRoleFieldUpdateOperationsInput } from "../inputs/EnumRoleFieldUpdateOperationsInput";
 import { NullableDateTimeFieldUpdateOperationsInput } from "../inputs/NullableDateTimeFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
-import { ProjectUpdateManyWithoutUsersInput } from "../inputs/ProjectUpdateManyWithoutUsersInput";
+import { ProjectUpdateManyWithoutAssignUsersInput } from "../inputs/ProjectUpdateManyWithoutAssignUsersInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 import { TaskUpdateManyWithoutUserInput } from "../inputs/TaskUpdateManyWithoutUserInput";
 import { WorkspaceUpdateManyWithoutUserInput } from "../inputs/WorkspaceUpdateManyWithoutUserInput";
@@ -14,7 +14,7 @@ import { WorkspaceUpdateManyWithoutUserInput } from "../inputs/WorkspaceUpdateMa
   isAbstract: true,
   description: undefined,
 })
-export class UserUpdateWithoutProjectInput {
+export class UserUpdateWithoutProjectOwnsInput {
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true,
     description: undefined
@@ -75,9 +75,9 @@ export class UserUpdateWithoutProjectInput {
   })
   workspaces?: WorkspaceUpdateManyWithoutUserInput | undefined;
 
-  @TypeGraphQL.Field(_type => ProjectUpdateManyWithoutUsersInput, {
+  @TypeGraphQL.Field(_type => ProjectUpdateManyWithoutAssignUsersInput, {
     nullable: true,
     description: undefined
   })
-  projects?: ProjectUpdateManyWithoutUsersInput | undefined;
+  projects?: ProjectUpdateManyWithoutAssignUsersInput | undefined;
 }

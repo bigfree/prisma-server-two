@@ -3,7 +3,7 @@ import { Project } from "../../../models/Project";
 import { Task } from "../../../models/Task";
 import { User } from "../../../models/User";
 import { Workspace } from "../../../models/Workspace";
-import { UserProjectArgs } from "./args/UserProjectArgs";
+import { UserProjectOwnsArgs } from "./args/UserProjectOwnsArgs";
 import { UserProjectsArgs } from "./args/UserProjectsArgs";
 import { UserTasksArgs } from "./args/UserTasksArgs";
 import { UserWorkspacesArgs } from "./args/UserWorkspacesArgs";
@@ -50,11 +50,11 @@ export class UserRelationsResolver {
     nullable: true,
     description: undefined,
   })
-  async project(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserProjectArgs): Promise<Project[] | null> {
+  async projectOwns(@TypeGraphQL.Root() user: User, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Args() args: UserProjectOwnsArgs): Promise<Project[] | null> {
     return ctx.prisma.user.findOne({
       where: {
         id: user.id,
       },
-    }).project(args);
+    }).projectOwns(args);
   }
 }

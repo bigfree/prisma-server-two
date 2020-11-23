@@ -1,0 +1,54 @@
+{
+  "version": "0.3.14-fixed",
+  "steps": [
+    {
+      "tag": "CreateField",
+      "model": "User",
+      "field": "projectOwners",
+      "type": "Project",
+      "arity": "List"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "projectOwners"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "User",
+          "field": "projectOwners"
+        },
+        "directive": "relation"
+      },
+      "argument": "",
+      "value": "\"ProjectOwner\""
+    },
+    {
+      "tag": "DeleteField",
+      "model": "User",
+      "field": "project"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Project",
+      "field": "assignUsers",
+      "type": "User",
+      "arity": "List"
+    },
+    {
+      "tag": "DeleteField",
+      "model": "Project",
+      "field": "users"
+    }
+  ]
+}

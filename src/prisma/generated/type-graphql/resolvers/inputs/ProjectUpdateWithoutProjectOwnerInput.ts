@@ -45,5 +45,5 @@ export class ProjectUpdateWithoutProjectOwnerInput {
     nullable: true,
     description: undefined
   })
-  users?: UserUpdateManyWithoutProjectsInput | undefined;
+  assignUsers?: UserUpdateManyWithoutProjectsInput | undefined;
 }

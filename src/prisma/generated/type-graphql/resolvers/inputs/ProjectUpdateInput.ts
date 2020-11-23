@@ -5,7 +5,7 @@ import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdat
 import { NullableDateTimeFieldUpdateOperationsInput } from "../inputs/NullableDateTimeFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 import { UserUpdateManyWithoutProjectsInput } from "../inputs/UserUpdateManyWithoutProjectsInput";
-import { UserUpdateOneRequiredWithoutProjectInput } from "../inputs/UserUpdateOneRequiredWithoutProjectInput";
+import { UserUpdateOneRequiredWithoutProjectOwnsInput } from "../inputs/UserUpdateOneRequiredWithoutProjectOwnsInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true,
@@ -42,15 +42,15 @@ export class ProjectUpdateInput {
   })
   deletedAt?: NullableDateTimeFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => UserUpdateOneRequiredWithoutProjectInput, {
+  @TypeGraphQL.Field(_type => UserUpdateOneRequiredWithoutProjectOwnsInput, {
     nullable: true,
     description: undefined
   })
-  projectOwner?: UserUpdateOneRequiredWithoutProjectInput | undefined;
+  projectOwner?: UserUpdateOneRequiredWithoutProjectOwnsInput | undefined;
 
   @TypeGraphQL.Field(_type => UserUpdateManyWithoutProjectsInput, {
     nullable: true,
     description: undefined
   })
-  users?: UserUpdateManyWithoutProjectsInput | undefined;
+  assignUsers?: UserUpdateManyWithoutProjectsInput | undefined;
 }

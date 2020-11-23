@@ -1,1 +1,1 @@
-export { ProjectUsersArgs } from "./ProjectUsersArgs";
+export { ProjectAssignUsersArgs } from "./ProjectAssignUsersArgs";

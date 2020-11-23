@@ -103,5 +103,5 @@ export class UserWhereInput {
     nullable: true,
     description: undefined
   })
-  project?: ProjectListRelationFilter | undefined;
+  projectOwns?: ProjectListRelationFilter | undefined;
 }

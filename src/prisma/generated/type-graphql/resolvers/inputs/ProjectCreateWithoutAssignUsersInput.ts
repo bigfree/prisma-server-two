@@ -1,13 +1,13 @@
 import * as TypeGraphQL from "type-graphql";
 import GraphQLJSON from "graphql-type-json";
 import { JsonValue, InputJsonValue } from "@prisma/client";
-import { UserCreateOneWithoutProjectInput } from "../inputs/UserCreateOneWithoutProjectInput";
+import { UserCreateOneWithoutProjectOwnsInput } from "../inputs/UserCreateOneWithoutProjectOwnsInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true,
   description: undefined,
 })
-export class ProjectCreateWithoutUsersInput {
+export class ProjectCreateWithoutAssignUsersInput {
   @TypeGraphQL.Field(_type => String, {
     nullable: true,
     description: undefined
@@ -38,9 +38,9 @@ export class ProjectCreateWithoutUsersInput {
   })
   deletedAt?: Date | undefined;
 
-  @TypeGraphQL.Field(_type => UserCreateOneWithoutProjectInput, {
+  @TypeGraphQL.Field(_type => UserCreateOneWithoutProjectOwnsInput, {
     nullable: false,
     description: undefined
   })
-  projectOwner!: UserCreateOneWithoutProjectInput;
+  projectOwner!: UserCreateOneWithoutProjectOwnsInput;
 }

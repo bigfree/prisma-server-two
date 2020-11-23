@@ -7,11 +7,19 @@ type AggregateLabel {
   count: Int!
 }
 
+type AggregateProject {
+  count: Int!
+}
+
 type AggregateTask {
   count: Int!
 }
 
 type AggregateUser {
+  count: Int!
+}
+
+type AggregateWorkspace {
   count: Int!
 }
 
@@ -197,25 +205,37 @@ input LabelWhereUniqueInput {
 
 type Mutation {
   createLabel(data: LabelCreateInput!): Label!
+  createProject(data: ProjectCreateInput!): Project!
   createTask(data: TaskCreateInput!): Task!
   createUser(data: UserCreateInput!): User!
+  createWorkspace(data: WorkspaceCreateInput!): Workspace!
   deleteLabel(where: LabelWhereUniqueInput!): Label
   deleteManyLabel(where: LabelWhereInput): BatchPayload!
+  deleteManyProject(where: ProjectWhereInput): BatchPayload!
   deleteManyTask(where: TaskWhereInput): BatchPayload!
   deleteManyUser(where: UserWhereInput): BatchPayload!
+  deleteManyWorkspace(where: WorkspaceWhereInput): BatchPayload!
+  deleteProject(where: ProjectWhereUniqueInput!): Project
   deleteTask(where: TaskWhereUniqueInput!): Task
   deleteUser(where: UserWhereUniqueInput!): User
+  deleteWorkspace(where: WorkspaceWhereUniqueInput!): Workspace
   login(data: AuthInput!): Auth!
   signup(data: AuthInput!): Auth!
   updateLabel(data: LabelUpdateInput!, where: LabelWhereUniqueInput!): Label
   updateManyLabel(data: LabelUpdateManyMutationInput!, where: LabelWhereInput): BatchPayload!
+  updateManyProject(data: ProjectUpdateManyMutationInput!, where: ProjectWhereInput): BatchPayload!
   updateManyTask(data: TaskUpdateManyMutationInput!, where: TaskWhereInput): BatchPayload!
   updateManyUser(data: UserUpdateManyMutationInput!, where: UserWhereInput): BatchPayload!
+  updateManyWorkspace(data: WorkspaceUpdateManyMutationInput!, where: WorkspaceWhereInput): BatchPayload!
+  updateProject(data: ProjectUpdateInput!, where: ProjectWhereUniqueInput!): Project
   updateTask(data: TaskUpdateInput!, where: TaskWhereUniqueInput!): Task
   updateUser(data: UserUpdateInput!, where: UserWhereUniqueInput!): User
+  updateWorkspace(data: WorkspaceUpdateInput!, where: WorkspaceWhereUniqueInput!): Workspace
   upsertLabel(create: LabelCreateInput!, update: LabelUpdateInput!, where: LabelWhereUniqueInput!): Label!
+  upsertProject(create: ProjectCreateInput!, update: ProjectUpdateInput!, where: ProjectWhereUniqueInput!): Project!
   upsertTask(create: TaskCreateInput!, update: TaskUpdateInput!, where: TaskWhereUniqueInput!): Task!
   upsertUser(create: UserCreateInput!, update: UserUpdateInput!, where: UserWhereUniqueInput!): User!
+  upsertWorkspace(create: WorkspaceCreateInput!, update: WorkspaceUpdateInput!, where: WorkspaceWhereUniqueInput!): Workspace!
 }
 
 input NestedDateTimeFilter {
@@ -283,19 +303,236 @@ input NullableStringFieldUpdateOperationsInput {
   set: String
 }
 
+type Project {
+  assignUsers(cursor: UserWhereUniqueInput, distinct: [UserDistinctFieldEnum!], orderBy: [UserOrderByInput!], skip: Int, take: Int, where: UserWhereInput): [User!]
+  createdAt: DateTime!
+  deletedAt: DateTime
+  id: String!
+  name: String!
+  projectOwner: User!
+  updatedAt: DateTime
+  userId: String!
+}
+
+input ProjectCreateInput {
+  assignUsers: UserCreateManyWithoutProjectsInput
+  createdAt: DateTime
+  deletedAt: DateTime
+  id: String
+  name: String!
+  projectOwner: UserCreateOneWithoutProjectOwnsInput!
+  updatedAt: DateTime
+}
+
+input ProjectCreateManyWithoutAssignUsersInput {
+  connect: [ProjectWhereUniqueInput!]
+  connectOrCreate: [ProjectCreateOrConnectWithoutassignUsersInput!]
+  create: [ProjectCreateWithoutAssignUsersInput!]
+}
+
+input ProjectCreateManyWithoutProjectOwnerInput {
+  connect: [ProjectWhereUniqueInput!]
+  connectOrCreate: [ProjectCreateOrConnectWithoutprojectOwnerInput!]
+  create: [ProjectCreateWithoutProjectOwnerInput!]
+}
+
+input ProjectCreateOrConnectWithoutassignUsersInput {
+  create: ProjectCreateWithoutAssignUsersInput!
+  where: ProjectWhereUniqueInput!
+}
+
+input ProjectCreateOrConnectWithoutprojectOwnerInput {
+  create: ProjectCreateWithoutProjectOwnerInput!
+  where: ProjectWhereUniqueInput!
+}
+
+input ProjectCreateWithoutAssignUsersInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  id: String
+  name: String!
+  projectOwner: UserCreateOneWithoutProjectOwnsInput!
+  updatedAt: DateTime
+}
+
+input ProjectCreateWithoutProjectOwnerInput {
+  assignUsers: UserCreateManyWithoutProjectsInput
+  createdAt: DateTime
+  deletedAt: DateTime
+  id: String
+  name: String!
+  updatedAt: DateTime
+}
+
+enum ProjectDistinctFieldEnum {
+  createdAt
+  deletedAt
+  id
+  name
+  updatedAt
+  userId
+}
+
+input ProjectListRelationFilter {
+  every: ProjectWhereInput
+  none: ProjectWhereInput
+  some: ProjectWhereInput
+}
+
+input ProjectOrderByInput {
+  createdAt: SortOrder
+  deletedAt: SortOrder
+  id: SortOrder
+  name: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input ProjectScalarWhereInput {
+  AND: [ProjectScalarWhereInput!]
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: StringFilter
+  name: StringFilter
+  NOT: [ProjectScalarWhereInput!]
+  OR: [ProjectScalarWhereInput!]
+  updatedAt: DateTimeNullableFilter
+  userId: StringFilter
+}
+
+input ProjectUpdateInput {
+  assignUsers: UserUpdateManyWithoutProjectsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  projectOwner: UserUpdateOneRequiredWithoutProjectOwnsInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
+}
+
+input ProjectUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
+}
+
+input ProjectUpdateManyWithoutAssignUsersInput {
+  connect: [ProjectWhereUniqueInput!]
+  connectOrCreate: [ProjectCreateOrConnectWithoutassignUsersInput!]
+  create: [ProjectCreateWithoutAssignUsersInput!]
+  delete: [ProjectWhereUniqueInput!]
+  deleteMany: [ProjectScalarWhereInput!]
+  disconnect: [ProjectWhereUniqueInput!]
+  set: [ProjectWhereUniqueInput!]
+  update: [ProjectUpdateWithWhereUniqueWithoutAssignUsersInput!]
+  updateMany: [ProjectUpdateManyWithWhereWithoutAssignUsersInput!]
+  upsert: [ProjectUpsertWithWhereUniqueWithoutAssignUsersInput!]
+}
+
+input ProjectUpdateManyWithoutProjectOwnerInput {
+  connect: [ProjectWhereUniqueInput!]
+  connectOrCreate: [ProjectCreateOrConnectWithoutprojectOwnerInput!]
+  create: [ProjectCreateWithoutProjectOwnerInput!]
+  delete: [ProjectWhereUniqueInput!]
+  deleteMany: [ProjectScalarWhereInput!]
+  disconnect: [ProjectWhereUniqueInput!]
+  set: [ProjectWhereUniqueInput!]
+  update: [ProjectUpdateWithWhereUniqueWithoutProjectOwnerInput!]
+  updateMany: [ProjectUpdateManyWithWhereWithoutProjectOwnerInput!]
+  upsert: [ProjectUpsertWithWhereUniqueWithoutProjectOwnerInput!]
+}
+
+input ProjectUpdateManyWithWhereWithoutAssignUsersInput {
+  data: ProjectUpdateManyMutationInput!
+  where: ProjectScalarWhereInput!
+}
+
+input ProjectUpdateManyWithWhereWithoutProjectOwnerInput {
+  data: ProjectUpdateManyMutationInput!
+  where: ProjectScalarWhereInput!
+}
+
+input ProjectUpdateWithoutAssignUsersInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  projectOwner: UserUpdateOneRequiredWithoutProjectOwnsInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
+}
+
+input ProjectUpdateWithoutProjectOwnerInput {
+  assignUsers: UserUpdateManyWithoutProjectsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
+}
+
+input ProjectUpdateWithWhereUniqueWithoutAssignUsersInput {
+  data: ProjectUpdateWithoutAssignUsersInput!
+  where: ProjectWhereUniqueInput!
+}
+
+input ProjectUpdateWithWhereUniqueWithoutProjectOwnerInput {
+  data: ProjectUpdateWithoutProjectOwnerInput!
+  where: ProjectWhereUniqueInput!
+}
+
+input ProjectUpsertWithWhereUniqueWithoutAssignUsersInput {
+  create: ProjectCreateWithoutAssignUsersInput!
+  update: ProjectUpdateWithoutAssignUsersInput!
+  where: ProjectWhereUniqueInput!
+}
+
+input ProjectUpsertWithWhereUniqueWithoutProjectOwnerInput {
+  create: ProjectCreateWithoutProjectOwnerInput!
+  update: ProjectUpdateWithoutProjectOwnerInput!
+  where: ProjectWhereUniqueInput!
+}
+
+input ProjectWhereInput {
+  AND: [ProjectWhereInput!]
+  assignUsers: UserListRelationFilter
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  id: StringFilter
+  name: StringFilter
+  NOT: [ProjectWhereInput!]
+  OR: [ProjectWhereInput!]
+  projectOwner: UserRelationFilter
+  updatedAt: DateTimeNullableFilter
+  userId: StringFilter
+}
+
+input ProjectWhereUniqueInput {
+  id: String
+}
+
 type Query {
   aggregateLabel(cursor: LabelWhereUniqueInput, distinct: [LabelDistinctFieldEnum!], orderBy: [LabelOrderByInput!], skip: Int, take: Int, where: LabelWhereInput): AggregateLabel!
+  aggregateProject(cursor: ProjectWhereUniqueInput, distinct: [ProjectDistinctFieldEnum!], orderBy: [ProjectOrderByInput!], skip: Int, take: Int, where: ProjectWhereInput): AggregateProject!
   aggregateTask(cursor: TaskWhereUniqueInput, distinct: [TaskDistinctFieldEnum!], orderBy: [TaskOrderByInput!], skip: Int, take: Int, where: TaskWhereInput): AggregateTask!
   aggregateUser(cursor: UserWhereUniqueInput, distinct: [UserDistinctFieldEnum!], orderBy: [UserOrderByInput!], skip: Int, take: Int, where: UserWhereInput): AggregateUser!
+  aggregateWorkspace(cursor: WorkspaceWhereUniqueInput, distinct: [WorkspaceDistinctFieldEnum!], orderBy: [WorkspaceOrderByInput!], skip: Int, take: Int, where: WorkspaceWhereInput): AggregateWorkspace!
   findFirstLabel(cursor: LabelWhereUniqueInput, distinct: [LabelDistinctFieldEnum!], orderBy: [LabelOrderByInput!], skip: Int, take: Int, where: LabelWhereInput): Label
+  findFirstProject(cursor: ProjectWhereUniqueInput, distinct: [ProjectDistinctFieldEnum!], orderBy: [ProjectOrderByInput!], skip: Int, take: Int, where: ProjectWhereInput): Project
   findFirstTask(cursor: TaskWhereUniqueInput, distinct: [TaskDistinctFieldEnum!], orderBy: [TaskOrderByInput!], skip: Int, take: Int, where: TaskWhereInput): Task
   findFirstUser(cursor: UserWhereUniqueInput, distinct: [UserDistinctFieldEnum!], orderBy: [UserOrderByInput!], skip: Int, take: Int, where: UserWhereInput): User
+  findFirstWorkspace(cursor: WorkspaceWhereUniqueInput, distinct: [WorkspaceDistinctFieldEnum!], orderBy: [WorkspaceOrderByInput!], skip: Int, take: Int, where: WorkspaceWhereInput): Workspace
   label(where: LabelWhereUniqueInput!): Label
   labels(cursor: LabelWhereUniqueInput, distinct: [LabelDistinctFieldEnum!], orderBy: [LabelOrderByInput!], skip: Int, take: Int, where: LabelWhereInput): [Label!]!
+  project(where: ProjectWhereUniqueInput!): Project
+  projects(cursor: ProjectWhereUniqueInput, distinct: [ProjectDistinctFieldEnum!], orderBy: [ProjectOrderByInput!], skip: Int, take: Int, where: ProjectWhereInput): [Project!]!
   task(where: TaskWhereUniqueInput!): Task
   tasks(cursor: TaskWhereUniqueInput, distinct: [TaskDistinctFieldEnum!], orderBy: [TaskOrderByInput!], skip: Int, take: Int, where: TaskWhereInput): [Task!]!
   user(where: UserWhereUniqueInput!): User
   users(cursor: UserWhereUniqueInput, distinct: [UserDistinctFieldEnum!], orderBy: [UserOrderByInput!], skip: Int, take: Int, where: UserWhereInput): [User!]!
+  workspace(where: WorkspaceWhereUniqueInput!): Workspace
+  workspaces(cursor: WorkspaceWhereUniqueInput, distinct: [WorkspaceDistinctFieldEnum!], orderBy: [WorkspaceOrderByInput!], skip: Int, take: Int, where: WorkspaceWhereInput): [Workspace!]!
 }
 
 enum QueryMode {
@@ -304,6 +541,7 @@ enum QueryMode {
 }
 
 enum Role {
+  PROJECTOWNER
   USER
   WORKSPACEADMIN
   WORKSPACEOWNER
@@ -588,9 +826,12 @@ type User {
   id: String!
   name: String
   password: String!
+  projectOwns(cursor: ProjectWhereUniqueInput, distinct: [ProjectDistinctFieldEnum!], orderBy: [ProjectOrderByInput!], skip: Int, take: Int, where: ProjectWhereInput): [Project!]
+  projects(cursor: ProjectWhereUniqueInput, distinct: [ProjectDistinctFieldEnum!], orderBy: [ProjectOrderByInput!], skip: Int, take: Int, where: ProjectWhereInput): [Project!]
   role: Role!
   tasks(cursor: TaskWhereUniqueInput, distinct: [TaskDistinctFieldEnum!], orderBy: [TaskOrderByInput!], skip: Int, take: Int, where: TaskWhereInput): [Task!]
   updatedAt: DateTime
+  workspaces(cursor: WorkspaceWhereUniqueInput, distinct: [WorkspaceDistinctFieldEnum!], orderBy: [WorkspaceOrderByInput!], skip: Int, take: Int, where: WorkspaceWhereInput): [Workspace!]
 }
 
 input UserCreateInput {
@@ -600,9 +841,24 @@ input UserCreateInput {
   id: String
   name: String
   password: String!
+  projectOwns: ProjectCreateManyWithoutProjectOwnerInput
+  projects: ProjectCreateManyWithoutAssignUsersInput
   role: Role
   tasks: TaskCreateManyWithoutUserInput
   updatedAt: DateTime
+  workspaces: WorkspaceCreateManyWithoutUserInput
+}
+
+input UserCreateManyWithoutProjectsInput {
+  connect: [UserWhereUniqueInput!]
+  connectOrCreate: [UserCreateOrConnectWithoutprojectsInput!]
+  create: [UserCreateWithoutProjectsInput!]
+}
+
+input UserCreateOneWithoutProjectOwnsInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutprojectOwnsInput
+  create: UserCreateWithoutProjectOwnsInput
 }
 
 input UserCreateOneWithoutTasksInput {
@@ -611,9 +867,58 @@ input UserCreateOneWithoutTasksInput {
   create: UserCreateWithoutTasksInput
 }
 
+input UserCreateOneWithoutWorkspacesInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutworkspacesInput
+  create: UserCreateWithoutWorkspacesInput
+}
+
+input UserCreateOrConnectWithoutprojectOwnsInput {
+  create: UserCreateWithoutProjectOwnsInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateOrConnectWithoutprojectsInput {
+  create: UserCreateWithoutProjectsInput!
+  where: UserWhereUniqueInput!
+}
+
 input UserCreateOrConnectWithouttasksInput {
   create: UserCreateWithoutTasksInput!
   where: UserWhereUniqueInput!
+}
+
+input UserCreateOrConnectWithoutworkspacesInput {
+  create: UserCreateWithoutWorkspacesInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserCreateWithoutProjectOwnsInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  email: String!
+  id: String
+  name: String
+  password: String!
+  projects: ProjectCreateManyWithoutAssignUsersInput
+  role: Role
+  tasks: TaskCreateManyWithoutUserInput
+  updatedAt: DateTime
+  workspaces: WorkspaceCreateManyWithoutUserInput
+}
+
+input UserCreateWithoutProjectsInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  email: String!
+  id: String
+  name: String
+  password: String!
+  projectOwns: ProjectCreateManyWithoutProjectOwnerInput
+  role: Role
+  tasks: TaskCreateManyWithoutUserInput
+  updatedAt: DateTime
+  workspaces: WorkspaceCreateManyWithoutUserInput
 }
 
 input UserCreateWithoutTasksInput {
@@ -623,7 +928,24 @@ input UserCreateWithoutTasksInput {
   id: String
   name: String
   password: String!
+  projectOwns: ProjectCreateManyWithoutProjectOwnerInput
+  projects: ProjectCreateManyWithoutAssignUsersInput
   role: Role
+  updatedAt: DateTime
+  workspaces: WorkspaceCreateManyWithoutUserInput
+}
+
+input UserCreateWithoutWorkspacesInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  email: String!
+  id: String
+  name: String
+  password: String!
+  projectOwns: ProjectCreateManyWithoutProjectOwnerInput
+  projects: ProjectCreateManyWithoutAssignUsersInput
+  role: Role
+  tasks: TaskCreateManyWithoutUserInput
   updatedAt: DateTime
 }
 
@@ -636,6 +958,12 @@ enum UserDistinctFieldEnum {
   password
   role
   updatedAt
+}
+
+input UserListRelationFilter {
+  every: UserWhereInput
+  none: UserWhereInput
+  some: UserWhereInput
 }
 
 input UserOrderByInput {
@@ -654,6 +982,20 @@ input UserRelationFilter {
   isNot: UserWhereInput
 }
 
+input UserScalarWhereInput {
+  AND: [UserScalarWhereInput!]
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  email: StringFilter
+  id: StringFilter
+  name: StringNullableFilter
+  NOT: [UserScalarWhereInput!]
+  OR: [UserScalarWhereInput!]
+  password: StringFilter
+  role: EnumRoleFilter
+  updatedAt: DateTimeNullableFilter
+}
+
 input UserUpdateInput {
   createdAt: DateTimeFieldUpdateOperationsInput
   deletedAt: NullableDateTimeFieldUpdateOperationsInput
@@ -661,9 +1003,12 @@ input UserUpdateInput {
   id: StringFieldUpdateOperationsInput
   name: NullableStringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
+  projectOwns: ProjectUpdateManyWithoutProjectOwnerInput
+  projects: ProjectUpdateManyWithoutAssignUsersInput
   role: EnumRoleFieldUpdateOperationsInput
   tasks: TaskUpdateManyWithoutUserInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
+  workspaces: WorkspaceUpdateManyWithoutUserInput
 }
 
 input UserUpdateManyMutationInput {
@@ -677,12 +1022,74 @@ input UserUpdateManyMutationInput {
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
 }
 
+input UserUpdateManyWithoutProjectsInput {
+  connect: [UserWhereUniqueInput!]
+  connectOrCreate: [UserCreateOrConnectWithoutprojectsInput!]
+  create: [UserCreateWithoutProjectsInput!]
+  delete: [UserWhereUniqueInput!]
+  deleteMany: [UserScalarWhereInput!]
+  disconnect: [UserWhereUniqueInput!]
+  set: [UserWhereUniqueInput!]
+  update: [UserUpdateWithWhereUniqueWithoutProjectsInput!]
+  updateMany: [UserUpdateManyWithWhereWithoutProjectsInput!]
+  upsert: [UserUpsertWithWhereUniqueWithoutProjectsInput!]
+}
+
+input UserUpdateManyWithWhereWithoutProjectsInput {
+  data: UserUpdateManyMutationInput!
+  where: UserScalarWhereInput!
+}
+
+input UserUpdateOneRequiredWithoutProjectOwnsInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutprojectOwnsInput
+  create: UserCreateWithoutProjectOwnsInput
+  update: UserUpdateWithoutProjectOwnsInput
+  upsert: UserUpsertWithoutProjectOwnsInput
+}
+
 input UserUpdateOneRequiredWithoutTasksInput {
   connect: UserWhereUniqueInput
   connectOrCreate: UserCreateOrConnectWithouttasksInput
   create: UserCreateWithoutTasksInput
   update: UserUpdateWithoutTasksInput
   upsert: UserUpsertWithoutTasksInput
+}
+
+input UserUpdateOneRequiredWithoutWorkspacesInput {
+  connect: UserWhereUniqueInput
+  connectOrCreate: UserCreateOrConnectWithoutworkspacesInput
+  create: UserCreateWithoutWorkspacesInput
+  update: UserUpdateWithoutWorkspacesInput
+  upsert: UserUpsertWithoutWorkspacesInput
+}
+
+input UserUpdateWithoutProjectOwnsInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  name: NullableStringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  projects: ProjectUpdateManyWithoutAssignUsersInput
+  role: EnumRoleFieldUpdateOperationsInput
+  tasks: TaskUpdateManyWithoutUserInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
+  workspaces: WorkspaceUpdateManyWithoutUserInput
+}
+
+input UserUpdateWithoutProjectsInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  name: NullableStringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  projectOwns: ProjectUpdateManyWithoutProjectOwnerInput
+  role: EnumRoleFieldUpdateOperationsInput
+  tasks: TaskUpdateManyWithoutUserInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
+  workspaces: WorkspaceUpdateManyWithoutUserInput
 }
 
 input UserUpdateWithoutTasksInput {
@@ -692,13 +1099,51 @@ input UserUpdateWithoutTasksInput {
   id: StringFieldUpdateOperationsInput
   name: NullableStringFieldUpdateOperationsInput
   password: StringFieldUpdateOperationsInput
+  projectOwns: ProjectUpdateManyWithoutProjectOwnerInput
+  projects: ProjectUpdateManyWithoutAssignUsersInput
   role: EnumRoleFieldUpdateOperationsInput
   updatedAt: NullableDateTimeFieldUpdateOperationsInput
+  workspaces: WorkspaceUpdateManyWithoutUserInput
+}
+
+input UserUpdateWithoutWorkspacesInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  email: StringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  name: NullableStringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+  projectOwns: ProjectUpdateManyWithoutProjectOwnerInput
+  projects: ProjectUpdateManyWithoutAssignUsersInput
+  role: EnumRoleFieldUpdateOperationsInput
+  tasks: TaskUpdateManyWithoutUserInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
+}
+
+input UserUpdateWithWhereUniqueWithoutProjectsInput {
+  data: UserUpdateWithoutProjectsInput!
+  where: UserWhereUniqueInput!
+}
+
+input UserUpsertWithoutProjectOwnsInput {
+  create: UserCreateWithoutProjectOwnsInput!
+  update: UserUpdateWithoutProjectOwnsInput!
 }
 
 input UserUpsertWithoutTasksInput {
   create: UserCreateWithoutTasksInput!
   update: UserUpdateWithoutTasksInput!
+}
+
+input UserUpsertWithoutWorkspacesInput {
+  create: UserCreateWithoutWorkspacesInput!
+  update: UserUpdateWithoutWorkspacesInput!
+}
+
+input UserUpsertWithWhereUniqueWithoutProjectsInput {
+  create: UserCreateWithoutProjectsInput!
+  update: UserUpdateWithoutProjectsInput!
+  where: UserWhereUniqueInput!
 }
 
 input UserWhereInput {
@@ -711,12 +1156,191 @@ input UserWhereInput {
   NOT: [UserWhereInput!]
   OR: [UserWhereInput!]
   password: StringFilter
+  projectOwns: ProjectListRelationFilter
+  projects: ProjectListRelationFilter
   role: EnumRoleFilter
   tasks: TaskListRelationFilter
   updatedAt: DateTimeNullableFilter
+  workspaces: WorkspaceListRelationFilter
 }
 
 input UserWhereUniqueInput {
   email: String
   id: String
+}
+
+type Workspace {
+  createdAt: DateTime!
+  deletedAt: DateTime
+  description: String
+  id: String!
+  image: String
+  name: String!
+  slug: String!
+  updatedAt: DateTime
+  user: User!
+  userId: String!
+}
+
+input WorkspaceCreateInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  description: String
+  id: String
+  image: String
+  name: String!
+  slug: String!
+  updatedAt: DateTime
+  user: UserCreateOneWithoutWorkspacesInput!
+}
+
+input WorkspaceCreateManyWithoutUserInput {
+  connect: [WorkspaceWhereUniqueInput!]
+  connectOrCreate: [WorkspaceCreateOrConnectWithoutuserInput!]
+  create: [WorkspaceCreateWithoutUserInput!]
+}
+
+input WorkspaceCreateOrConnectWithoutuserInput {
+  create: WorkspaceCreateWithoutUserInput!
+  where: WorkspaceWhereUniqueInput!
+}
+
+input WorkspaceCreateWithoutUserInput {
+  createdAt: DateTime
+  deletedAt: DateTime
+  description: String
+  id: String
+  image: String
+  name: String!
+  slug: String!
+  updatedAt: DateTime
+}
+
+enum WorkspaceDistinctFieldEnum {
+  createdAt
+  deletedAt
+  description
+  id
+  image
+  name
+  slug
+  updatedAt
+  userId
+}
+
+input WorkspaceListRelationFilter {
+  every: WorkspaceWhereInput
+  none: WorkspaceWhereInput
+  some: WorkspaceWhereInput
+}
+
+input WorkspaceOrderByInput {
+  createdAt: SortOrder
+  deletedAt: SortOrder
+  description: SortOrder
+  id: SortOrder
+  image: SortOrder
+  name: SortOrder
+  slug: SortOrder
+  updatedAt: SortOrder
+  userId: SortOrder
+}
+
+input WorkspaceScalarWhereInput {
+  AND: [WorkspaceScalarWhereInput!]
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  description: StringNullableFilter
+  id: StringFilter
+  image: StringNullableFilter
+  name: StringFilter
+  NOT: [WorkspaceScalarWhereInput!]
+  OR: [WorkspaceScalarWhereInput!]
+  slug: StringFilter
+  updatedAt: DateTimeNullableFilter
+  userId: StringFilter
+}
+
+input WorkspaceUpdateInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  slug: StringFieldUpdateOperationsInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
+  user: UserUpdateOneRequiredWithoutWorkspacesInput
+}
+
+input WorkspaceUpdateManyMutationInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  slug: StringFieldUpdateOperationsInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
+}
+
+input WorkspaceUpdateManyWithoutUserInput {
+  connect: [WorkspaceWhereUniqueInput!]
+  connectOrCreate: [WorkspaceCreateOrConnectWithoutuserInput!]
+  create: [WorkspaceCreateWithoutUserInput!]
+  delete: [WorkspaceWhereUniqueInput!]
+  deleteMany: [WorkspaceScalarWhereInput!]
+  disconnect: [WorkspaceWhereUniqueInput!]
+  set: [WorkspaceWhereUniqueInput!]
+  update: [WorkspaceUpdateWithWhereUniqueWithoutUserInput!]
+  updateMany: [WorkspaceUpdateManyWithWhereWithoutUserInput!]
+  upsert: [WorkspaceUpsertWithWhereUniqueWithoutUserInput!]
+}
+
+input WorkspaceUpdateManyWithWhereWithoutUserInput {
+  data: WorkspaceUpdateManyMutationInput!
+  where: WorkspaceScalarWhereInput!
+}
+
+input WorkspaceUpdateWithoutUserInput {
+  createdAt: DateTimeFieldUpdateOperationsInput
+  deletedAt: NullableDateTimeFieldUpdateOperationsInput
+  description: NullableStringFieldUpdateOperationsInput
+  id: StringFieldUpdateOperationsInput
+  image: NullableStringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  slug: StringFieldUpdateOperationsInput
+  updatedAt: NullableDateTimeFieldUpdateOperationsInput
+}
+
+input WorkspaceUpdateWithWhereUniqueWithoutUserInput {
+  data: WorkspaceUpdateWithoutUserInput!
+  where: WorkspaceWhereUniqueInput!
+}
+
+input WorkspaceUpsertWithWhereUniqueWithoutUserInput {
+  create: WorkspaceCreateWithoutUserInput!
+  update: WorkspaceUpdateWithoutUserInput!
+  where: WorkspaceWhereUniqueInput!
+}
+
+input WorkspaceWhereInput {
+  AND: [WorkspaceWhereInput!]
+  createdAt: DateTimeFilter
+  deletedAt: DateTimeNullableFilter
+  description: StringNullableFilter
+  id: StringFilter
+  image: StringNullableFilter
+  name: StringFilter
+  NOT: [WorkspaceWhereInput!]
+  OR: [WorkspaceWhereInput!]
+  slug: StringFilter
+  updatedAt: DateTimeNullableFilter
+  user: UserRelationFilter
+  userId: StringFilter
+}
+
+input WorkspaceWhereUniqueInput {
+  id: String
+  slug: String
 }

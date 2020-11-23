@@ -4,13 +4,13 @@ import { JsonValue, InputJsonValue } from "@prisma/client";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { NullableDateTimeFieldUpdateOperationsInput } from "../inputs/NullableDateTimeFieldUpdateOperationsInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
-import { UserUpdateOneRequiredWithoutProjectInput } from "../inputs/UserUpdateOneRequiredWithoutProjectInput";
+import { UserUpdateOneRequiredWithoutProjectOwnsInput } from "../inputs/UserUpdateOneRequiredWithoutProjectOwnsInput";
 
 @TypeGraphQL.InputType({
   isAbstract: true,
   description: undefined,
 })
-export class ProjectUpdateWithoutUsersInput {
+export class ProjectUpdateWithoutAssignUsersInput {
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true,
     description: undefined
@@ -41,9 +41,9 @@ export class ProjectUpdateWithoutUsersInput {
   })
   deletedAt?: NullableDateTimeFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => UserUpdateOneRequiredWithoutProjectInput, {
+  @TypeGraphQL.Field(_type => UserUpdateOneRequiredWithoutProjectOwnsInput, {
     nullable: true,
     description: undefined
   })
-  projectOwner?: UserUpdateOneRequiredWithoutProjectInput | undefined;
+  projectOwner?: UserUpdateOneRequiredWithoutProjectOwnsInput | undefined;
 }

@@ -6,7 +6,7 @@ import { ProjectWhereUniqueInput } from "../../../inputs/ProjectWhereUniqueInput
 import { ProjectDistinctFieldEnum } from "../../../../enums/ProjectDistinctFieldEnum";
 
 @TypeGraphQL.ArgsType()
-export class UserProjectArgs {
+export class UserProjectOwnsArgs {
   @TypeGraphQL.Field(_type => ProjectWhereInput, { nullable: true })
   where?: ProjectWhereInput | undefined;
 

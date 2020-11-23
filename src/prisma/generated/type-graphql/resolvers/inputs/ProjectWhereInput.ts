@@ -76,5 +76,5 @@ export class ProjectWhereInput {
     nullable: true,
     description: undefined
   })
-  users?: UserListRelationFilter | undefined;
+  assignUsers?: UserListRelationFilter | undefined;
 }

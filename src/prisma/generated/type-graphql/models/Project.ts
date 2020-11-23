@@ -47,5 +47,5 @@ export class Project {
   })
   userId!: string;
 
-  users?: User[] | null;
+  assignUsers?: User[] | null;
 }

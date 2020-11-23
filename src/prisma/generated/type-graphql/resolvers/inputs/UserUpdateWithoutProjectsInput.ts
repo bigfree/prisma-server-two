@@ -79,5 +79,5 @@ export class UserUpdateWithoutProjectsInput {
     nullable: true,
     description: undefined
   })
-  project?: ProjectUpdateManyWithoutProjectOwnerInput | undefined;
+  projectOwns?: ProjectUpdateManyWithoutProjectOwnerInput | undefined;
 }
