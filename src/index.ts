@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { ApolloServer } from "apollo-server";
+import { ApolloServerPluginInlineTrace } from "apollo-server-core";
 import { GraphQLSchema } from "graphql";
 import path from "path";
 import "reflect-metadata";
@@ -61,6 +62,9 @@ async function main() {
             const user = getUser(token);
             return {user, prisma};
         },
+        plugins: [
+            ApolloServerPluginInlineTrace(),
+        ]
     });
 
     const {port} = await server.listen(process.env.PORT || 4000);
